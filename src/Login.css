@@ -1,0 +1,30 @@
+.input-container{
+    margin-top: 3%;
+}
+.input-box{
+    border-radius: 30px;;
+    background-color: #FCF8E8;
+    border-style: none;
+    height: 50px;
+    width: 300px;
+    font-size: 30px;;
+}
+.label{
+    font-size: 40px;
+}
+.button-container{
+    margin-top: 7%;
+    margin-left: 40%; 
+}
+.button{
+    background-color: #FCF8E8;
+    border-radius: 50px;
+    border: none;
+    margin: 30px;
+    display:block;
+    padding-left: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 10%;
+    font-size: 20px;
+}

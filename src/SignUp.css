@@ -1,0 +1,22 @@
+.input-container{
+    display: flex;
+    justify-content: center;
+
+}
+.signup-label-container{
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-right: 2%;
+}
+
+.signup-input-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box{
+    margin-bottom: 5%;
+}
+
