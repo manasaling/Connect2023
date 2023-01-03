@@ -48,6 +48,7 @@ const EventCode = () => {
             </div>
             <div className="button-container">
               <input className = "button" type="submit" />
+              <br></br>
             </div>
           </form>
         </div>

@@ -1,10 +1,14 @@
-import Questions from "./Questions";
+import userEvent from '@testing-library/user-event';
+import MatchedProfile from "./MatchedProfiles";
+
 
 const UserHome = () => {
-    return ( 
-        <div>
-            <h1>user home page</h1>
-        </div>
+    return (   
+    <box>
+        <h1>Welcome user1!</h1>
+        <MatchedProfile></MatchedProfile>
+    </box>
+
      );
 }
  

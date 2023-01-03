@@ -2,7 +2,7 @@
 
 body{
     font-family: 'Baloo Bhai 2';
-    background-color: #ECB390;
+    background-color: #FFFFFF;
 }
 
 .title{
@@ -15,7 +15,7 @@ body{
 }
 
 .button{
-    background-color: #FCF8E8;
+    background-color: #D8A7DB;
     border: none;
     display:block;
     font-size: 20px;

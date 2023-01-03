@@ -1,3 +1,10 @@
 .label{
     padding-right: 2%;
 }
+
+.form{
+    background-color: #D8A7DB;
+    justify-content: space-evenly;
+    margin: 5%;
+    justify-content: center;
+}

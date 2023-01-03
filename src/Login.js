@@ -47,8 +47,12 @@ const Login = () => {
     const renderForm = (
         
         <div className="form">
-            <h1>login</h1>
+          <h1>login</h1>
+          <div className="chicken">
+            <br></br>
+            
           <form onSubmit={handleSubmit}>
+          <br></br>
             <div className="input-container">
               <label className="label">username </label>
               <input className="input-box"type="text" name="uname" required />
@@ -62,7 +66,9 @@ const Login = () => {
             <div className="button-container">
               <input className = "button" type="submit" />
             </div>
+            <br></br>
           </form>
+          </div>
         </div>
       );
 
