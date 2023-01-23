@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EventCode from "./EventCode";
+import IndividualProfile from "./IndividualProfile";
 import './Login.css'
 import PersonalProfile from "./PersonalProfile";
 const Login = () => {
@@ -78,6 +79,7 @@ const Login = () => {
            <div className="title">connect</div>
 
            {isSubmitted ? <EventCode/> : renderForm}
+
         </div>
      );
 }

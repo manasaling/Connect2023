@@ -7,6 +7,7 @@ import SignUp from './SignUp';
 import EventCode from './EventCode';
 import UserHome from './UserHome';
 import PersonalProfile from './PersonalProfile';
+import IndividualProfile from './IndividualProfile';
 
 
 
@@ -21,7 +22,7 @@ function App() {
           <Route path="/eventcode" element={<EventCode/>} />
           <Route path="/userHome" element={<UserHome/>} />
           <Route path="/matchedProfiles" element={<matchedProfiles/>} />
-          
+          <Route path="/profiles" element={<IndividualProfile/>} />
           
         </Routes>
       </BrowserRouter>

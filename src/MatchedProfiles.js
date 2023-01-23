@@ -3,6 +3,7 @@ import Layout from './Layout'
 import { Link } from 'react-router-dom'
 import PersonalProfile from './PersonalProfile';
 import './MatchedProfiles.css';
+import IndividualProfile from './IndividualProfile';
 const matchedProfiles = ({location}) => {
   return (
     
@@ -30,6 +31,7 @@ const matchedProfiles = ({location}) => {
       </profile>
     </box>
   </Layout>
+  
     </div>
 
   )

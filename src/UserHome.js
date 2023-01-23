@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event';
+import IndividualProfile from './IndividualProfile';
 import MatchedProfile from "./MatchedProfiles";
 
 
@@ -6,7 +6,7 @@ const UserHome = () => {
     return (   
         <div className='background'>
             <MatchedProfile></MatchedProfile>
-
+        
         </div>
         
 
