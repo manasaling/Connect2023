@@ -1,12 +1,16 @@
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-
 import './IndividualProfile.css';
+
 
 const IndividualProfile = () => {
     return (   
         <div>
-                <script src="https://kit.fontawesome.com/d5a2ab1878.js" crossorigin="anonymous"></script>
+            <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'></link>
+            <script src="https://kit.fontawesome.com/d5a2ab1878.js" ></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            
+
                     <div className="w3-content w3-margin-top">
                     <div className="w3-row-padding">
 
@@ -22,7 +26,7 @@ const IndividualProfile = () => {
                         </div>
                         <div className="w3-container">
                             <p><i className="fa-solid fa-briefcase fa-fw w3-margin-right w3-large icon-purple"></i>Designer</p>
-                            <p><i className="fa-solid fa-house fa-fw w3-margin-right w3-large icon-purple"></i>London, UK</p>
+                            <p><i className="fa-solid fa-star fa-fw w3-margin-right w3-large icon-purple"></i>London, UK</p>
                             <p><i className="fa-solid fa-envelope fa-fw w3-margin-right w3-large icon-purple"></i>ex@mail.com</p>
                             <p><i className="fa-solid fa-phone fa-fw w3-margin-right w3-large icon-purple"></i>1224435534</p>
 
@@ -116,6 +120,17 @@ const IndividualProfile = () => {
 
 
                     </div>
+
+                    <footer className="w3-container connect-blue w3-center w3-margin-top">
+                        <p>Find me on social media.</p>
+                        <i className="fa fa-facebook-official w3-hover-opacity"></i>
+                        <i className="fa fa-instagram w3-hover-opacity"></i>
+                        <i className="fa fa-snapchat w3-hover-opacity"></i>
+                        <i className="fa fa-pinterest-p w3-hover-opacity"></i>
+                        <i className="fa fa-twitter w3-hover-opacity"></i>
+                        <i className="fa fa-linkedin w3-hover-opacity"></i>
+                        <p></p>
+                    </footer>
             
             
         </div>
