@@ -9,8 +9,6 @@ const IndividualProfile = () => {
             <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'></link>
             <script src="https://kit.fontawesome.com/d5a2ab1878.js" ></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-            
-
                     <div className="w3-content w3-margin-top">
                     <div className="w3-row-padding">
 

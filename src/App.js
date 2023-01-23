@@ -25,7 +25,7 @@ function App() {
           <Route path="/eventcode" element={<EventCode/>} />
           <Route path="/userHome" element={<UserHome/>} />
           <Route path="/matchedProfiles" element={<matchedProfiles/>} />
-          <Route path="/profiles" element={<IndividualProfile/>} />
+          <Route path="/profile" element={<IndividualProfile/>} />
           
         </Routes>
       </BrowserRouter>
