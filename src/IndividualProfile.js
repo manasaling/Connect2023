@@ -1,13 +1,12 @@
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import "./style.css"
 
 
 const IndividualProfile = () => {
     return (   
         <div>
-            <link rel="stylesheet" href="C:\Users\prana\Desktop\connect_profilePage\style.css"></link>
-            <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'></link>
-
+                <script src="https://kit.fontawesome.com/d5a2ab1878.js" crossorigin="anonymous"></script>
                     <div className="w3-content w3-margin-top">
                     <div className="w3-row-padding">
 
