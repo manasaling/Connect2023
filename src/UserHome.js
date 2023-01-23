@@ -1,5 +1,6 @@
 import IndividualProfile from './IndividualProfile';
 import MatchedProfile from "./MatchedProfiles";
+import React from 'react';
 
 
 const UserHome = () => {

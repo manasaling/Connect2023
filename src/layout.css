@@ -3,7 +3,7 @@ a {
     text-decoration: none;
     padding: 0.25rem .6rem;
     color: white;
-    background-image: url("../public/Capture.PNG");
+    
 }
 
 box {
@@ -43,7 +43,7 @@ profilename {
 body {
     background-color: #fff;
     padding:0%;
-    background-image: url("../public/Capture.PNG");
+    
 }
 nav {
     background: #ECB390;

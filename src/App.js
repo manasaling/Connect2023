@@ -8,10 +8,13 @@ import EventCode from './EventCode';
 import UserHome from './UserHome';
 import PersonalProfile from './PersonalProfile';
 import IndividualProfile from './IndividualProfile';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 
 
 function App() {
+  
   return (
     <div className="App">
       <BrowserRouter>

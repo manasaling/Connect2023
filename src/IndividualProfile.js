@@ -5,7 +5,9 @@ import React from 'react';
 const IndividualProfile = () => {
     return (   
         <div>
-            <script src="https://kit.fontawesome.com/d5a2ab1878.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="C:\Users\prana\Desktop\connect_profilePage\style.css"></link>
+            <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'></link>
+
                     <div class="w3-content w3-margin-top" style="max-width:1400px;">
                     <div class="w3-row-padding">
 
