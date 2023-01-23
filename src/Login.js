@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EventCode from "./EventCode";
 import './Login.css'
+import PersonalProfile from "./PersonalProfile";
 const Login = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -75,6 +76,7 @@ const Login = () => {
     return ( 
         <div className="login">
            <div className="title">connect</div>
+
            {isSubmitted ? <EventCode/> : renderForm}
         </div>
      );

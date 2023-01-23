@@ -3,22 +3,24 @@ a {
     text-decoration: none;
     padding: 0.25rem .6rem;
     color: white;
+    background-image: url("../public/Capture.PNG");
 }
 
 box {
     display:block;
     margin:auto;
-    background-color: #FCF8E8;
+    background-color: #ffffff;
     border-radius: 0%;
     width: 97%;
     height: 500px;
     overflow: scroll;
     align-self: center;
+    
 }
 
 profile {
     display:block;
-    background-color: #c4c3f3;
+    background-color: #ffffff;
     border-radius: 10%;
     width: 30%;
     height: 250px;
@@ -41,6 +43,7 @@ profilename {
 body {
     background-color: #fff;
     padding:0%;
+    background-image: url("../public/Capture.PNG");
 }
 nav {
     background: #ECB390;
