@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import Home from './Home';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
