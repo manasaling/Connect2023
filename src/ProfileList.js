@@ -10,6 +10,7 @@ const ProfileList = ({location}) => {
       <div className='background'>
       <box>
       <div className='topBar'>
+      <div className='header'>Connect</div>
           
           <div class="topnav">
               <Link to='/profileList'>Individual</Link>

@@ -10,6 +10,7 @@ const ProjectsList = ({location}) => {
       <Layout></Layout>
       <box>
     <div className='topBar'>
+    <div className='header'>Connect</div>
         <div class="topnav">
             <Link to='/profileList'>Individual</Link>
             <Link to='/projectsList'>Projects</Link>
