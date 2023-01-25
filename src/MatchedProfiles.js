@@ -1,16 +1,16 @@
 import React from 'react';
 import Layout from './Layout'
 import { Link } from 'react-router-dom'
-import PersonalProfile from './PersonalProfile';
 import './MatchedProfiles.css';
-import IndividualProfile from './IndividualProfile';
+import ProfileCard from './ProfileCard';
 const matchedProfiles = ({location}) => {
   return (
     
     <div className='background'>
-      <Layout>
+      
+     
     <box>
-      <div className='topBar'>
+    <div className='topBar'>
         <div class="searchbar">
             <input type="text" placeholder="Search.."></input>
         </div>
@@ -21,16 +21,22 @@ const matchedProfiles = ({location}) => {
         </div>
       </div>
       <profile>
-        <PersonalProfile></PersonalProfile>
+        <ProfileCard> </ProfileCard>
       </profile>
       <profile>
-        <PersonalProfile></PersonalProfile>
+      <ProfileCard> </ProfileCard>
       </profile>
       <profile>
-        <PersonalProfile></PersonalProfile>
+      <ProfileCard> </ProfileCard>
+      </profile>
+      <profile>
+      <ProfileCard> </ProfileCard>
+      </profile>
+      <profile>
+      <ProfileCard> </ProfileCard>
       </profile>
     </box>
-  </Layout>
+  
   
     </div>
 

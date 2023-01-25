@@ -6,7 +6,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import EventCode from './EventCode';
 import UserHome from './UserHome';
-import PersonalProfile from './PersonalProfile';
+import PersonalProfile from './ProfileCard';
 import IndividualProfile from './IndividualProfile';
 import Project from './Project';
 import React from 'react'

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EventCode from "./EventCode";
 import IndividualProfile from "./IndividualProfile";
 import './Login.css'
-import PersonalProfile from "./PersonalProfile";
+import PersonalProfile from "./ProfileCard";
 
 const Login = () => {
 

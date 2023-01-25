@@ -16,8 +16,6 @@ const Layout = ({children}) => {
             <Link to='/signup'>INTERESTS</Link>
             <a href>|</a>
             <Link to='/login'>EVENTS</Link>
-            
-
       </div>
             
             <main>
