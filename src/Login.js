@@ -3,6 +3,8 @@ import EventCode from "./EventCode";
 import IndividualProfile from "./IndividualProfile";
 import './Login.css'
 import PersonalProfile from "./ProfileCard";
+import { Navigate } from "react-router-dom";
+
 
 const Login = () => {
 
@@ -97,7 +99,8 @@ const Login = () => {
         <div className="login">
            <div className="title">connect</div>
 
-           {isSubmitted ? <EventCode/> : renderForm}
+           {isSubmitted ? <EventCode/> : renderForm }
+            
 
         </div>
      );

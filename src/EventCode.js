@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UserHome from "./UserHome";
 import './EventCode.css'
+import ProfileList from "./ProfileList";
 const EventCode = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,6 +21,8 @@ const EventCode = () => {
     }
   ];
 
+  
+
   const errors = {
     ecode: "invalid code",
   };
@@ -36,6 +39,7 @@ const EventCode = () => {
             } 
         } 
     }
+
 
     const renderForm = (
       <><div class="login-wrap">
@@ -55,11 +59,13 @@ const EventCode = () => {
                 <label for="user" class="label">Event Code</label>
                 <input id="user" type="text" class="input" name ="ecode" required/>
                 {renderErrorMessage("ecode")}
+                
               </div>
               <br></br>
               <br></br>
               <div class="group">
                 <button type="submit" class="button">Submit</button>
+                
               </div>
               <div class="hr"></div>
               
@@ -70,10 +76,11 @@ const EventCode = () => {
       </div></>
     );
     
+    
 
     return ( 
         <div className="content">
-           {isSubmitted ? <UserHome/> : renderForm}
+           {isSubmitted ? <ProfileList/>  : renderForm}
         </div>
      );
 }

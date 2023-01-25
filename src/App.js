@@ -9,6 +9,7 @@ import UserHome from './UserHome';
 import IndividualProfile from './IndividualProfile';
 import Project from './Project';
 import ProjectsList from './ProjectsList';
+import ProfileList from './ProfileList';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Questions from './Questions';
@@ -16,6 +17,7 @@ import MatchedProfiles from './MatchedProfiles';
 
 
 function App() {
+ 
   
   return (
     <div className="App">
@@ -31,6 +33,9 @@ function App() {
           <Route path="/questions" element={<Questions/>} />
           <Route path="/project" element={<Project/>} />
           <Route path="/projectsList" element={<ProjectsList/>} />
+          <Route path="/profileList" element={<ProfileList/>} />
+          
+          
           
         </Routes>
       </BrowserRouter>

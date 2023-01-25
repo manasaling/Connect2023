@@ -6,6 +6,7 @@ const Layout = ({children}) => {
     return (
         <>
       <div class="menu">
+            
             <Link to='/profile'>PROFILE</Link>
             <a href>|</a>
             <Link to='/team'>TEAM</Link>

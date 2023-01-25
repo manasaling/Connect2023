@@ -3,14 +3,13 @@ import Layout from './Layout'
 import { Link } from 'react-router-dom'
 import './MatchedProfiles.css';
 import ProfileCard from './ProfileCard';
-const matchedProfiles = ({location}) => {
+const ProfileList = ({location}) => {
   return (
     <div>
       <Layout></Layout>
       <div className='background'>
       <box>
       <div className='topBar'>
-        <div className='header'>Connect</div>
           
           <div class="topnav">
               <Link to='/profileList'>Individual</Link>
@@ -45,4 +44,4 @@ const matchedProfiles = ({location}) => {
   )
 }
 
-export default matchedProfiles;
+export default ProfileList;

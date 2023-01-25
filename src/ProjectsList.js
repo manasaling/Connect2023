@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from './Layout'
 import { Link } from 'react-router-dom'
 import './MatchedProfiles.css';
-import ProfileCard from './ProfileCard';
+import ProjectCard from './ProjectCard';
 const ProjectsList = ({location}) => {
   return (
     
@@ -11,7 +11,7 @@ const ProjectsList = ({location}) => {
       <box>
     <div className='topBar'>
         <div class="topnav">
-            <Link to='/individualProfile'>Individual</Link>
+            <Link to='/profileList'>Individual</Link>
             <Link to='/projectsList'>Projects</Link>
             <Link to ="/matched">Matched</Link>
             
@@ -21,20 +21,18 @@ const ProjectsList = ({location}) => {
             </div> 
       </div>
       <profile>
-        <ProfileCard> </ProfileCard>
+        <ProjectCard></ProjectCard>
       </profile>
       <profile>
-      <ProfileCard> </ProfileCard>
+        <ProjectCard></ProjectCard>
       </profile>
       <profile>
-      <ProfileCard> </ProfileCard>
+        <ProjectCard></ProjectCard>
       </profile>
       <profile>
-      <ProfileCard> </ProfileCard>
+        <ProjectCard></ProjectCard>
       </profile>
-      <profile>
-      <ProfileCard> </ProfileCard>
-      </profile>
+     
     </box>
   
   
