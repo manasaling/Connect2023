@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import Home from './Home';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -8,6 +8,7 @@ import EventCode from './EventCode';
 import UserHome from './UserHome';
 import PersonalProfile from './PersonalProfile';
 import IndividualProfile from './IndividualProfile';
+import Project from './Project';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Questions from './Questions';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/matchedProfiles" element={<matchedProfiles/>} />
           <Route path="/profile" element={<IndividualProfile/>} />
           <Route path="/questions" element={<Questions/>} />
+          <Route path="/project" element={<Project/>} />
           
         </Routes>
       </BrowserRouter>
