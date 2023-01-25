@@ -74,7 +74,7 @@ const Login = () => {
                 </div>
                 <div class="forgotpw">
                   <div class="foot-lnk">
-                    <a href="#forgot">Don't have an Account? Create One.</a>
+                    <a href="/signup">Don't have an Account? Create One.</a>
                   </div>
                   
                 </div>

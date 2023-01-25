@@ -10,6 +10,7 @@ import PersonalProfile from './PersonalProfile';
 import IndividualProfile from './IndividualProfile';
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Questions from './Questions';
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/userHome" element={<UserHome/>} />
           <Route path="/matchedProfiles" element={<matchedProfiles/>} />
           <Route path="/profile" element={<IndividualProfile/>} />
+          <Route path="/questions" element={<Questions/>} />
           
         </Routes>
       </BrowserRouter>

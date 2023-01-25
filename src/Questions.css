@@ -36,15 +36,18 @@
 }
 
 .input-box-userinfo{
-    background-color: #FFFFFF;
     border-radius: 30px;;
+    border-color: #D8A7DB;
+    background-color: #FFFFFF;
+    opacity: 70%;
     border-style: none;
     height: 50px;
-    width: 400px;
-    font-size: 30px;
-    margin-left: 5%;
-    align-items: center;
-    margin-bottom: 3%
+    width: 300px;
+    margin-bottom: 3%;
+    color:#aaa;
+	font-size:12px;
+    padding-left: 5%;
+
 }
 
 .button-userinfo{

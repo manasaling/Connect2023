@@ -44,6 +44,7 @@ const SignUp = () => {
                 <div class="group">
                   <label for="uname" class="label">Username</label>
                   <input id="uname" type="text" class="input" data-type="uname" name = "uname" required />
+                  {renderErrorMessage("uname")}
                 </div>
                 <div class="group">
                   <label for="pass" class="label">Password</label>
@@ -53,6 +54,7 @@ const SignUp = () => {
                 <div class="group">
                   <label for="pass" class="label">Retype Password</label>
                   <input id="pass" type="password" class="input" data-type="checkpass" name = "checkpass" required />
+                  {renderErrorMessage("checkpass")}
                 </div>
                 <div class="group">
                   <button type="submit" class="button">Sign Up</button>
