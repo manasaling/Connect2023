@@ -18,7 +18,7 @@ export default function ProjectCard() {
         <p>Skills Needed: Front End, Figma, Java</p>
         <p>Track: Environment</p>
         
-        <p><button><Link to='/profile'>More Info</Link></button></p>
+        <p><button><Link to='/project'>More Info</Link></button></p>
         
         </div>
     </section>
