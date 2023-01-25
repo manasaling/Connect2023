@@ -5,7 +5,6 @@ import './layout.css'
 const Layout = ({children}) => {
     return (
         <>
-        <h5>connect</h5>
       <div class="menu">
             <Link to='/profile'>PROFILE</Link>
             <a href>|</a>

@@ -7,7 +7,7 @@ a {
 }
 
 box {
-    display:block;
+
     margin:auto;
     border-radius: 0%;
     width: 97%;
@@ -18,13 +18,12 @@ box {
     align-self: center;
     
 }
-
 ::-webkit-scrollbar {
   width: 0;  /* Remove scrollbar space */
   background: transparent;  
 }
 profile {
-    display:block;
+    
 
     border-radius: 10%;
     width: 30%;
@@ -121,6 +120,7 @@ span {
 .topnav {
     overflow: hidden;
     margin-left: 30px;
+    padding-top: 100px;
     /*background-color: #94B49F;*/
   }
   
