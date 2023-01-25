@@ -8,6 +8,7 @@ import EventCode from './EventCode';
 import UserHome from './UserHome';
 import PersonalProfile from './PersonalProfile';
 import IndividualProfile from './IndividualProfile';
+import Project from './Project';
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/userHome" element={<UserHome/>} />
           <Route path="/matchedProfiles" element={<matchedProfiles/>} />
           <Route path="/profile" element={<IndividualProfile/>} />
+          <Route path="/project" element={<Project/>} />
           
         </Routes>
       </BrowserRouter>

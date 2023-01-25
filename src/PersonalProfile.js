@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import './PersonalProfile.css';
+import { Link } from "react-router-dom";
 export default function PersonalProfile() {
   return (
     <section>
@@ -16,7 +17,8 @@ export default function PersonalProfile() {
         <p class="title">CS @ UW Seattle</p>
         <p>Skills: Front End, Figma, Java</p>
         <p>Interests: Environment, Healthcare</p>
-        <p><button>More Info</button></p>
+        
+        <p><button><Link to='/profile'>More Info</Link></button></p>
         
         </div>
     </section>
