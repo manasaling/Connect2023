@@ -38,21 +38,38 @@ const EventCode = () => {
     }
 
     const renderForm = (
-        <div className="form">
-            <h1 className="instructions">enter event code</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="input-container">
-              <label className="label">event code</label>
-              <input className="input-box"type="text" name="ecode" required />
-              {renderErrorMessage("ecode")}
-            </div>
-            <div className="button-container">
-              <input className = "button" type="submit" />
-              <br></br>
-            </div>
-          </form>
+      <><div class="login-wrap">
+      <div class="login-html">
+        <div class="welcome">
+          <label class="connect">Welcome to Connect!</label>
+          <br/>
+          <label class="tagline">Let's turn your passion into reality</label>
         </div>
-      );
+        
+        <form onSubmit={handleSubmit}>
+          <div class="login-form">
+            <div class="sign-in-htm">
+              <br></br>
+              <br></br>
+              <div class="group">
+                <label for="user" class="label">Event Code</label>
+                <input id="user" type="text" class="input" name ="ecode" required/>
+                {renderErrorMessage("ecode")}
+              </div>
+              <br></br>
+              <br></br>
+              <div class="group">
+                <button type="submit" class="button">Submit</button>
+              </div>
+              <div class="hr"></div>
+              
+            </div>
+          </div>
+        </form>
+      </div>
+      </div></>
+    );
+    
 
     return ( 
         <div className="content">

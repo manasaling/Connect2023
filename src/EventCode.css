@@ -8,3 +8,7 @@
     margin: 5%;
     justify-content: center;
 }
+
+.button {
+    justify-self: center;
+}

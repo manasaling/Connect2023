@@ -3,7 +3,11 @@ import EventCode from "./EventCode";
 import IndividualProfile from "./IndividualProfile";
 import './Login.css'
 import PersonalProfile from "./PersonalProfile";
+
 const Login = () => {
+
+
+  
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -47,31 +51,46 @@ const Login = () => {
     }
 
     const renderForm = (
-        
-        <div className="form">
-          <h1>login</h1>
-          <div className="chicken">
-            <br></br>
-            
-          <form onSubmit={handleSubmit}>
-          <br></br>
-            <div className="input-container">
-              <label className="label">username </label>
-              <input className="input-box"type="text" name="uname" required />
-              {renderErrorMessage("uname")}
-            </div>
-            <div className="input-container">
-              <label className="label">password </label>
-              <input className="input-box" type="password" name="pass" required />
-              {renderErrorMessage("pass")}
-            </div>
-            <div className="button-container">
-              <input className = "button" type="submit" />
-            </div>
-            <br></br>
-          </form>
+      <><div class="login-wrap">
+        <div class="login-html">
+          <div class="welcome">
+            <label class="connect">Welcome to Connect!</label>
+            <br/>
+            <label class="tagline">Let's turn your passion into reality</label>
           </div>
+          
+          <form onSubmit={handleSubmit}>
+            <div class="login-form">
+              <div class="sign-in-htm">
+                <div class="group">
+                  <label for="user" class="label">Username</label>
+                  <input id="user" type="text" class="input" name ="uname" required/>
+                  {renderErrorMessage("uname")}
+                </div>
+                <div class="group">
+                  <label for="pass" class="label">Password</label>
+                  <input id="pass" type="password" class="input" data-type="password" name = "pass" required />
+                  {renderErrorMessage("pass")}
+                </div>
+                <div class="forgotpw">
+                  <div class="foot-lnk">
+                    <a href="#forgot">Don't have an Account? Create One.</a>
+                  </div>
+                  
+                </div>
+                <div class="group">
+                  <input type="submit" class="button" value="Login" />
+                </div>
+                <div class="hr"></div>
+                <div class="group">
+                  <input id="check" type="checkbox" class="check" checked="false" />
+                  <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
+      </div></>
       );
 
     return ( 

@@ -17,7 +17,7 @@ const SignUp = () => {
         event.preventDefault();
         var{email, uname, pass, checkpass} = document.forms[0];
         if(pass.value != checkpass.value){
-            setErrorMessages({name: "pass", message: "passwords don't match"})
+            setErrorMessages({message: "passwords don't match"})
         }else if(!email.value.includes("@")){
             setErrorMessages({name: "email", message: "enter valid email"})
         }else{
@@ -26,6 +26,68 @@ const SignUp = () => {
       };
 
       const renderForm = (
+
+        <><div class="login-wrap">
+        <div class="login-html">
+          <div class="welcome">
+            <label class="connect">Create an Account</label>
+          </div>
+          
+          <form onSubmit={handleSubmit} action= "info.php" method= "post">
+            <div class="login-form">
+              <div class="sign-in-htm">
+                <div class="group">
+                  <label for="email" class="label">Email</label>
+                  <input id="email" type="text" class="input" name ="email" required/>
+                  {renderErrorMessage("email")}
+                </div>
+                <div class="group">
+                  <label for="uname" class="label">Username</label>
+                  <input id="uname" type="text" class="input" data-type="uname" name = "uname" required />
+                </div>
+                <div class="group">
+                  <label for="pass" class="label">Password</label>
+                  <input id="pass" type="password" class="input" name ="pass" required/>
+                  {renderErrorMessage("pass")}
+                </div>
+                <div class="group">
+                  <label for="pass" class="label">Retype Password</label>
+                  <input id="pass" type="password" class="input" data-type="checkpass" name = "checkpass" required />
+                </div>
+                <div class="group">
+                  <button type="submit" class="button">Sign Up</button>
+                </div>
+                <div class="hr"></div>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div><div className="form">
+          <h1>login</h1>
+          <div className="chicken">
+            <br></br>
+
+            <form onSubmit={handleSubmit} action= "info.php" method= "post">
+              <br></br>
+              <div className="input-container">
+                <label className="label">username </label>
+                <input className="input-box" type="text" name="uname" required />
+                {renderErrorMessage("uname")}
+              </div>
+              <div className="input-container">
+                <label className="label">password </label>
+                <input className="input-box" type="password" name="pass" required />
+                {renderErrorMessage("pass")}
+              </div>
+              <div className="button-container">
+                <input className="button" type="submit" />
+              </div>
+              <br></br>
+            </form>
+          </div>
+        </div></>
+      );
 
         
         <div className="form">
@@ -43,8 +105,9 @@ const SignUp = () => {
                     {renderErrorMessage("email")}
                     <input className="input-box"type="text" name="uname" required />
                     <input className="input-box"type="password" name="pass" required />
-                    <input className="input-box"type="password" name="checkpass" required />
                     {renderErrorMessage("pass")}
+                    <input className="input-box"type="password" name="checkpass" required />
+                    {renderErrorMessage("checkpass")}
                 </div>
                 
             </div>
@@ -76,7 +139,7 @@ const SignUp = () => {
       </div> */}
           </form>
       </div>
-      )
+
 
     return ( 
         <div className="signup">
