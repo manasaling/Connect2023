@@ -5,8 +5,8 @@ import './layout.css'
 const Layout = ({children}) => {
     return (
         <>
-        <h5>connect</h5>
       <div class="menu">
+            
             <Link to='/profile'>PROFILE</Link>
             <a href>|</a>
             <Link to='/team'>TEAM</Link>
@@ -16,8 +16,6 @@ const Layout = ({children}) => {
             <Link to='/signup'>INTERESTS</Link>
             <a href>|</a>
             <Link to='/login'>EVENTS</Link>
-            
-
       </div>
             
             <main>

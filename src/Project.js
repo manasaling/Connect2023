@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import './IndividualProfile.css';
 import profilePicture from './images/ramenFood.jpg';
-import PersonalProfile from './PersonalProfile';
+import PersonalProfile from './ProfileCard';
 
 
 const Project = () => {

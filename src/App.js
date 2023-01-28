@@ -6,16 +6,18 @@ import Login from './Login';
 import SignUp from './SignUp';
 import EventCode from './EventCode';
 import UserHome from './UserHome';
-import PersonalProfile from './PersonalProfile';
 import IndividualProfile from './IndividualProfile';
 import Project from './Project';
+import ProjectsList from './ProjectsList';
+import ProfileList from './ProfileList';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Questions from './Questions';
-
+import MatchedProfiles from './MatchedProfiles';
 
 
 function App() {
+ 
   
   return (
     <div className="App">
@@ -26,10 +28,14 @@ function App() {
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/eventcode" element={<EventCode/>} />
           <Route path="/userHome" element={<UserHome/>} />
-          <Route path="/matchedProfiles" element={<matchedProfiles/>} />
+          <Route path="/matched" element={<MatchedProfiles/>} />
           <Route path="/profile" element={<IndividualProfile/>} />
           <Route path="/questions" element={<Questions/>} />
           <Route path="/project" element={<Project/>} />
+          <Route path="/projectsList" element={<ProjectsList/>} />
+          <Route path="/profileList" element={<ProfileList/>} />
+          
+          
           
         </Routes>
       </BrowserRouter>

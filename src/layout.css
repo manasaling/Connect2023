@@ -7,25 +7,29 @@ a {
 }
 
 box {
-    display:block;
+
     margin:auto;
-    
     border-radius: 0%;
     width: 97%;
     height: 500px;
     overflow: scroll;
+    overflow-x: hidden;
+    
     align-self: center;
     
 }
-
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  
+}
 profile {
-    display:block;
-    background-color: #ffffff;
+    
+
     border-radius: 10%;
     width: 30%;
     height: 250px;
     margin-left: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 300px;
     margin-right: 10px;
     float: left;
 }
@@ -116,11 +120,13 @@ span {
 .topnav {
     overflow: hidden;
     margin-left: 30px;
+    padding-top: 100px;
     /*background-color: #94B49F;*/
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
+    
     float: left;
     display: block;
     border-radius: 40%;
