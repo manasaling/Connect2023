@@ -47,7 +47,7 @@ const EventCode = () => {
         <div class="welcome">
           <label class="connect">Welcome to Connect!</label>
           <br/>
-          <label class="tagline">Let's turn your passion into reality</label>
+          <label class="tagline">Let's turn your passion into reality!</label>
         </div>
         
         <form onSubmit={handleSubmit}>
