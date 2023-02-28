@@ -1,3 +1,7 @@
+type Query {
+  getUserByUsername(username: String!): Users
+}
+
 type Users @model @auth(rules: [{allow: public}]) {
   username: String!
   name: String!
@@ -13,4 +17,4 @@ type Skills {
 type Interests {
   indiv_interests: String!
 }
- 
+

@@ -9,6 +9,7 @@ export type CreateUsersInput = {
   skills?: Array< SkillsInput | null > | null,
   interests?: Array< InterestsInput | null > | null,
   id?: string | null,
+  _version?: number | null,
 };
 
 export type SkillsInput = {
@@ -78,6 +79,9 @@ export type Users = {
   id: string,
   createdAt: string,
   updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
 };
 
 export type Skills = {
@@ -97,10 +101,12 @@ export type UpdateUsersInput = {
   skills?: Array< SkillsInput | null > | null,
   interests?: Array< InterestsInput | null > | null,
   id: string,
+  _version?: number | null,
 };
 
 export type DeleteUsersInput = {
   id: string,
+  _version?: number | null,
 };
 
 export type ModelUsersFilterInput = {
@@ -116,6 +122,7 @@ export type ModelUsersConnection = {
   __typename: "ModelUsersConnection",
   items:  Array<Users | null >,
   nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type ModelSubscriptionUsersFilterInput = {
@@ -163,6 +170,9 @@ export type CreateUsersMutation = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -188,6 +198,9 @@ export type UpdateUsersMutation = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -213,6 +226,36 @@ export type DeleteUsersMutation = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type GetUserByUsernameQueryVariables = {
+  username: string,
+};
+
+export type GetUserByUsernameQuery = {
+  getUserByUsername?:  {
+    __typename: "Users",
+    username: string,
+    name: string,
+    university: string,
+    skills?:  Array< {
+      __typename: "Skills",
+      indiv_skills: string,
+    } | null > | null,
+    interests?:  Array< {
+      __typename: "Interests",
+      indiv_interests: string,
+    } | null > | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -237,6 +280,9 @@ export type GetUsersQuery = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -257,8 +303,39 @@ export type ListUsersQuery = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncUsersQueryVariables = {
+  filter?: ModelUsersFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncUsersQuery = {
+  syncUsers?:  {
+    __typename: "ModelUsersConnection",
+    items:  Array< {
+      __typename: "Users",
+      username: string,
+      name: string,
+      university: string,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -283,6 +360,9 @@ export type OnCreateUsersSubscription = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -307,6 +387,9 @@ export type OnUpdateUsersSubscription = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -331,5 +414,8 @@ export type OnDeleteUsersSubscription = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };

@@ -2,9 +2,10 @@ import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import './ProfileCard.css';
 import { Link } from "react-router-dom";
-import { API } from 'aws-amplify';
+import { API,graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries';
 import { useState, useEffect } from 'react';
+import {getUserByUsername} from './graphql/custom.ts';
 
 var curr_user;
 
@@ -16,21 +17,29 @@ async function fetchUser() {
     //console.log(allUsers); // result: { "data": { "listTodos": { "items": [/* ..... */] } } }
 
     //Fetch a single record by its identifier
-    const oneUser = await API.graphql({
-    query: queries.getUsers,
-    //variables: { id: '5c5c43e1-032a-473c-a425-d61141094381' }
-    variables: { id: '5c5c43e1-032a-473c-a425-d61141094381' }
-    });
+    // const oneUser = await API.graphql({
+    // query: queries.getUserByUsername,
+    // //variables: { id: '5c5c43e1-032a-473c-a425-d61141094381' }
+    // variables: { username: "manasaling" }
+    // });
 
-    curr_user = (oneUser.data.getUsers.name);
+    const oneUser = await API.graphql({
+      query: getUserByUsername,
+      //variables: { id: '5c5c43e1-032a-473c-a425-d61141094381' }
+      variables: { username: 'manasaling' },
+      debug: true
+      });
+
+    console.log(oneUser);
+    //curr_user = (oneUser.data.getUserByUsername.name);
     //console.log(curr_user);
 
   }
    catch (err) {
-      console.log("error fetching user");
+      console.log("error fetching user: ", err);
   }
 
-  return curr_user;
+  return "man";
 }
 
 export default function PersonalProfile() {
