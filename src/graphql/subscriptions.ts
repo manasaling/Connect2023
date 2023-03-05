@@ -8,12 +8,8 @@ export const onCreateUsers = /* GraphQL */ `
       username
       name
       university
-      skills {
-        indiv_skills
-      }
-      interests {
-        indiv_interests
-      }
+      skills
+      interests
       id
       createdAt
       updatedAt
@@ -29,12 +25,8 @@ export const onUpdateUsers = /* GraphQL */ `
       username
       name
       university
-      skills {
-        indiv_skills
-      }
-      interests {
-        indiv_interests
-      }
+      skills
+      interests
       id
       createdAt
       updatedAt
@@ -50,12 +42,8 @@ export const onDeleteUsers = /* GraphQL */ `
       username
       name
       university
-      skills {
-        indiv_skills
-      }
-      interests {
-        indiv_interests
-      }
+      skills
+      interests
       id
       createdAt
       updatedAt

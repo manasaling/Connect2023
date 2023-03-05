@@ -6,8 +6,8 @@ type Users @model @auth(rules: [{allow: public}]) {
   username: String!
   name: String!
   university: String!
-  skills: [Skills]
-  interests: [Interests]
+  skills: [String]
+  interests: [String]
 }
 
 type Skills {

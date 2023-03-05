@@ -34,9 +34,7 @@ export const schema = {
                 "skills": {
                     "name": "skills",
                     "isArray": true,
-                    "type": {
-                        "nonModel": "Skills"
-                    },
+                    "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
@@ -44,9 +42,7 @@ export const schema = {
                 "interests": {
                     "name": "interests",
                     "isArray": true,
-                    "type": {
-                        "nonModel": "Interests"
-                    },
+                    "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
@@ -122,5 +118,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.3.5",
-    "version": "efd57c3c98c96999e3bd53273fa1cd19"
+    "version": "d67f6f3e6460ad23bc7b7d1f7faaaa5f"
 };

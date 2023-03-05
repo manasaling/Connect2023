@@ -6,24 +6,18 @@ export type CreateUsersInput = {
   username: string,
   name: string,
   university: string,
-  skills?: Array< SkillsInput | null > | null,
-  interests?: Array< InterestsInput | null > | null,
+  skills?: Array< string | null > | null,
+  interests?: Array< string | null > | null,
   id?: string | null,
   _version?: number | null,
-};
-
-export type SkillsInput = {
-  indiv_skills: string,
-};
-
-export type InterestsInput = {
-  indiv_interests: string,
 };
 
 export type ModelUsersConditionInput = {
   username?: ModelStringInput | null,
   name?: ModelStringInput | null,
   university?: ModelStringInput | null,
+  skills?: ModelStringInput | null,
+  interests?: ModelStringInput | null,
   and?: Array< ModelUsersConditionInput | null > | null,
   or?: Array< ModelUsersConditionInput | null > | null,
   not?: ModelUsersConditionInput | null,
@@ -74,8 +68,8 @@ export type Users = {
   username: string,
   name: string,
   university: string,
-  skills?:  Array<Skills | null > | null,
-  interests?:  Array<Interests | null > | null,
+  skills?: Array< string | null > | null,
+  interests?: Array< string | null > | null,
   id: string,
   createdAt: string,
   updatedAt: string,
@@ -84,22 +78,12 @@ export type Users = {
   _lastChangedAt: number,
 };
 
-export type Skills = {
-  __typename: "Skills",
-  indiv_skills: string,
-};
-
-export type Interests = {
-  __typename: "Interests",
-  indiv_interests: string,
-};
-
 export type UpdateUsersInput = {
   username?: string | null,
   name?: string | null,
   university?: string | null,
-  skills?: Array< SkillsInput | null > | null,
-  interests?: Array< InterestsInput | null > | null,
+  skills?: Array< string | null > | null,
+  interests?: Array< string | null > | null,
   id: string,
   _version?: number | null,
 };
@@ -113,6 +97,8 @@ export type ModelUsersFilterInput = {
   username?: ModelStringInput | null,
   name?: ModelStringInput | null,
   university?: ModelStringInput | null,
+  skills?: ModelStringInput | null,
+  interests?: ModelStringInput | null,
   and?: Array< ModelUsersFilterInput | null > | null,
   or?: Array< ModelUsersFilterInput | null > | null,
   not?: ModelUsersFilterInput | null,
@@ -129,6 +115,8 @@ export type ModelSubscriptionUsersFilterInput = {
   username?: ModelSubscriptionStringInput | null,
   name?: ModelSubscriptionStringInput | null,
   university?: ModelSubscriptionStringInput | null,
+  skills?: ModelSubscriptionStringInput | null,
+  interests?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionUsersFilterInput | null > | null,
   or?: Array< ModelSubscriptionUsersFilterInput | null > | null,
 };
@@ -159,14 +147,8 @@ export type CreateUsersMutation = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -187,14 +169,8 @@ export type UpdateUsersMutation = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -215,14 +191,8 @@ export type DeleteUsersMutation = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -242,14 +212,8 @@ export type GetUserByUsernameQuery = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -269,14 +233,8 @@ export type GetUsersQuery = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -300,6 +258,8 @@ export type ListUsersQuery = {
       username: string,
       name: string,
       university: string,
+      skills?: Array< string | null > | null,
+      interests?: Array< string | null > | null,
       id: string,
       createdAt: string,
       updatedAt: string,
@@ -327,6 +287,8 @@ export type SyncUsersQuery = {
       username: string,
       name: string,
       university: string,
+      skills?: Array< string | null > | null,
+      interests?: Array< string | null > | null,
       id: string,
       createdAt: string,
       updatedAt: string,
@@ -349,14 +311,8 @@ export type OnCreateUsersSubscription = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -376,14 +332,8 @@ export type OnUpdateUsersSubscription = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,
@@ -403,14 +353,8 @@ export type OnDeleteUsersSubscription = {
     username: string,
     name: string,
     university: string,
-    skills?:  Array< {
-      __typename: "Skills",
-      indiv_skills: string,
-    } | null > | null,
-    interests?:  Array< {
-      __typename: "Interests",
-      indiv_interests: string,
-    } | null > | null,
+    skills?: Array< string | null > | null,
+    interests?: Array< string | null > | null,
     id: string,
     createdAt: string,
     updatedAt: string,

@@ -2,18 +2,31 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUserByUsername = /* GraphQL */ `
+  query GetUserByUsername($username: String!) {
+    getUserByUsername(username: $username) {
+      username
+      name
+      university
+      skills
+      interests
+      id
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const getUsers = /* GraphQL */ `
   query GetUsers($id: ID!) {
     getUsers(id: $id) {
       username
       name
       university
-      skills {
-        indiv_skills
-      }
-      interests {
-        indiv_interests
-      }
+      skills
+      interests
       id
       createdAt
       updatedAt
@@ -34,6 +47,8 @@ export const listUsers = /* GraphQL */ `
         username
         name
         university
+        skills
+        interests
         id
         createdAt
         updatedAt
@@ -63,6 +78,8 @@ export const syncUsers = /* GraphQL */ `
         username
         name
         university
+        skills
+        interests
         id
         createdAt
         updatedAt
