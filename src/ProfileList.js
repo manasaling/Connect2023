@@ -6,6 +6,7 @@ import ProfileCard from './ProfileCard';
 import { API,graphqlOperation } from 'aws-amplify';
 import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
+import SideBar from './SideBar';
 
 async function fetchUser() {
 
@@ -32,6 +33,7 @@ async function fetchUser() {
     allUsers.data.listUsers.items.forEach(user => {
      // console.log(user.id, user.name);
      const userData = {
+      // TODO: add major into this
       name: user.name,
       university: user.university,
       skills: user.skills || [],
@@ -143,26 +145,58 @@ const ProfileList = ({location}) => {
               <Link to='/projectsList'>Projects</Link>
               <Link to ="/matched">Matched</Link>
           </div>
-          <div class="searchbar">
+          {/* <div class="searchbar">
               <input type="text" placeholder="Search.."></input>
-          </div>
+          </div> */}
         </div>
-        <profile>
-          {[...all_user.entries()].map(([userId, userData]) => {
-              //console.log(userData);
+        <section className="overarchingPortion">
 
-              // i think we can somehow get a list of attributes for each type that we want, have them compared with what we have here without casing
-              // and a check if that 'list' is empty
 
-              // that table that comes from the checklist of the filters needs to be stored as a lower case only array
+        <SideBar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
 
-              // list names for now: skillsConstraints, interestsConstraints
-              if ((skillsConstraints.length == 0 || skillsConstraints.some(value => (userData.skills).includes(value.toLowerCase()))) || (interestsConstraints.length == 0 || interestsConstraints.some(value => (userData.interests).includes(value.toLowerCase())))) {
-                // this checks to see if some values of one array and in the other array, meaning we would want to include it
-                return <ProfileCard myObject={userData}> </ProfileCard>
-              }
-          })}
-        </profile>
+          {/* <div class="filterBar">
+            Name 
+            <input type="nameFilterInput" placeholder="Enter in Name Filters.."></input>
+            Major 
+            <input type="nameFilterInput" placeholder="Enter in Major Filters.."></input>
+            Skils 
+            <input type="nameFilterInput" placeholder="Enter in Skills Filters.."></input>
+            Interests 
+            <input type="nameFilterInput" placeholder="Enter in Interests Filters.."></input>
+
+
+            <button onClick="renderPageAgain">Enter Filters</button>
+
+            <div class="filteredItems">
+
+            </div>
+
+            
+          </div> */}
+
+          <div id="page-wrap">
+
+          <profile>
+            {[...all_user.entries()].map(([userId, userData]) => {
+                //console.log(userData);
+
+                // i think we can somehow get a list of attributes for each type that we want, have them compared with what we have here without casing
+                // and a check if that 'list' is empty
+
+                // that table that comes from the checklist of the filters needs to be stored as a lower case only array
+
+                // list names for now: skillsConstraints, interestsConstraints
+                //if ((skillsConstraints.length == 0 || skillsConstraints.some(value => (userData.skills).includes(value.toLowerCase()))) || (interestsConstraints.length == 0 || interestsConstraints.some(value => (userData.interests).includes(value.toLowerCase())))) {
+                  // this checks to see if some values of one array and in the other array, meaning we would want to include it
+                  return <ProfileCard myObject={userData}> </ProfileCard>
+                //}
+            })}
+          </profile>
+
+          </div>
+
+        </section>
+        
       
       </box>
     
