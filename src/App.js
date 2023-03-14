@@ -14,6 +14,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Questions from './Questions';
 import MatchedProfiles from './MatchedProfiles';
+import ProfileListSearch from './ProfileListSearch';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/project" element={<Project/>} />
           <Route path="/projectsList" element={<ProjectsList/>} />
           <Route path="/profileList" element={<ProfileList/>} />
+          <Route path="/profileListTotal" element={<ProfileListSearch/>} />
           
           
           
