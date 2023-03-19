@@ -15,11 +15,11 @@ import ReactDOM from 'react-dom'
 import Questions from './Questions';
 import MatchedProfiles from './MatchedProfiles';
 import ProfileListSearch from './ProfileListSearch';
+import SideBar from './SideBar';
 
 
 function App() {
  
-  
   return (
     <div className="App">
       <BrowserRouter>
@@ -34,7 +34,7 @@ function App() {
           <Route path="/questions" element={<Questions/>} />
           <Route path="/project" element={<Project/>} />
           <Route path="/projectsList" element={<ProjectsList/>} />
-          <Route path="/profileList" element={<ProfileList/>} />
+          <Route path="/profileList" element={<SideBar/>} />
           <Route path="/profileListTotal" element={<ProfileListSearch/>} />
           
           

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ProfileList from './ProfileList';
 import './SideBar.css';
+import Layout from './Layout';
+import { Link } from "react-router-dom";
+
 
 const SideBar = () => {
   const [skillsArray, setSkillsArray] = useState([]);
@@ -19,6 +22,7 @@ const SideBar = () => {
       setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
 
       skillsFilterInput.value = '';
+      this.setState({reload:!this.state.reload});
     }
   };
 
@@ -27,9 +31,38 @@ const SideBar = () => {
   };
 
   const filterArr = skillsArray.length > 0 ? [{ skills: skillsArray }] : [];
+  const defaultBool = skillsArray.length > 0 ? false: true;
 
   return (
+    
     <div>
+        <div className='background'>
+      <div className = 'filterMenu'>
+        
+      </div>
+      <Layout></Layout>
+      <box>
+    <div className='topBar'>
+    <div className='header'>Connect</div>
+        <div class="topnav">
+            <Link to='/profileList'>Individual</Link>
+            <Link to='/projectsList'>Projects</Link>
+            <Link to ="/matched">Matched</Link>
+            
+        </div>
+        <div class="searchbar">
+                <input type="text" placeholder="Search.."></input>
+            </div> 
+      </div>
+     
+    </box>
+  
+  
+    </div>
+
+
+
+
       Name
       <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." />
       Major
@@ -45,7 +78,7 @@ const SideBar = () => {
 
       <div id="filteredItems">initial</div>
 
-      {filtersUpdated && <ProfileList myObject={filterArr} />}
+      {filtersUpdated && <ProfileList myObject={filterArr}/>}
     </div>
   );
 };

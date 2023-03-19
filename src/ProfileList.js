@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
 
 async function fetchUser() {
+  
 
   const userMap = new Map();
   let curr_user = '';
@@ -82,6 +83,8 @@ export default function ProfileList(props) {
   const interestsConstraints = [];
 
 
+
+
   useEffect(() => {
     async function fetchData() {
       const user = await fetchUser();
@@ -98,11 +101,11 @@ export default function ProfileList(props) {
 
   return (
     <div>
-      <Layout></Layout>
+      {/* <Layout></Layout> */}
       <div className='background'>
       <box>
       <div className='topBar'>
-      <div className='header'>Connect</div>
+      {/* <div className='header'>Connect</div>
           
           <div class="topnav">
               <Link to='/profileList'>Individual</Link>
@@ -111,14 +114,50 @@ export default function ProfileList(props) {
           </div>
           {/* <div class="searchbar">
               <input type="text" placeholder="Search.."></input>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
         <section className="overarchingPortion">
 
 
-        <SideBar />
+        {/* <SideBar /> */}
 
-          {/* <div class="filterBar">
+          <div id="page-wrap">
+
+          <profile>
+            {[...all_user.entries()].map(([userId, userData]) => {
+                let printOut = false;
+                console.log(userData);
+
+                if (skillsConstraints.length == 0) {
+                  console.log("i am about to return the object because array size is 0 !!" + userData.name);
+                  return <ProfileCard myObject={userData}> </ProfileCard>
+                } else {
+
+                  if (userData.skills[0] != null) {
+
+                    for (let i = 0; i < (userData.skills).length; i++) {
+
+                      console.log(userData.skills.length);
+                      if (skillsConstraints.includes((userData.skills)[i].toLowerCase())) {
+                        console.log("matches on " + (userData.skills)[i].toLowerCase());
+                        printOut = true;
+                        i = userData.skills.length;
+                      } else {
+                        printOut = false;
+                      }
+  
+                    }
+                    
+                  }
+                }
+                if (printOut == true) {
+                  console.log("i am about to return the object " + userData.name);
+                  return <ProfileCard myObject={userData}> </ProfileCard>
+                }
+
+
+                // eslint-disable-next-line no-lone-blocks
+                {/* <div class="filterBar">
             Name 
             <input type="nameFilterInput" placeholder="Enter in Name Filters.."></input>
             Major 
@@ -136,19 +175,7 @@ export default function ProfileList(props) {
             </div>
 
             
-          </div> */}
-
-          <div id="page-wrap">
-
-          <profile>
-            {[...all_user.entries()].map(([userId, userData]) => {
-                let printOut = false;
-                console.log(userData);
-
-                
-
-
-
+                  </div> */}
 
                 // i think we can somehow get a list of attributes for each type that we want, have them compared with what we have here without casing
                 // and a check if that 'list' is empty
@@ -160,35 +187,7 @@ export default function ProfileList(props) {
                 // console.log(" this is the userData.skills array " + userData.skills);
                 // console.log(" this is the skill constaints array " + skillsConstraints);
 
-                if (skillsConstraints.length == 0) {
-                  console.log("i am about to return the object because array size is 0 " + userData.name);
-                  return <ProfileCard myObject={userData}> </ProfileCard>
-                } else {
-
-                  if (userData.skills[0] != null) {
-
-                    for (let i = 0; i < (userData.skills).length; i++) {
-
-                      console.log(userData.skills.length);
-  
-                      if (skillsConstraints.includes((userData.skills)[i].toLowerCase())) {
-                        console.log("matches on " + (userData.skills)[i].toLowerCase());
-                        printOut = true;
-                        i = userData.skills.length;
-                      } 
-  
-                    }
-                    
-                  }
-
-                  
-
-                }
-
-                if (printOut == true) {
-                  console.log("i am about to return the object " + userData.name);
-                  return <ProfileCard myObject={userData}> </ProfileCard>
-                }
+                
 
                 
                 
@@ -197,6 +196,8 @@ export default function ProfileList(props) {
                 
                 //   return <ProfileCard myObject={userData}> </ProfileCard>
                 // }
+
+
             })}
           </profile>
 
@@ -204,12 +205,12 @@ export default function ProfileList(props) {
 
         </section>
         
-      
+      </div>
       </box>
     
     
       </div>
-    </div>
+    // </div>
 
   );
 }
