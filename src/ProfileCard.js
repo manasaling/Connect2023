@@ -64,61 +64,7 @@ async function fetchUser() {
 export default function ProfileCard(props) {
 
   const { myObject } = props;
-
-  //console.log(myObject);
-
-  // const [all_user, setCurrUser] = useState([]);
-
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const user = await fetchUser();
-  //     setCurrUser(user);
-  //   }
-  //   fetchData();
-  // }, []);
-  // fetchUser();
-
-  // console.log(all_user);
-  // Simple query
-  // Simple query
-
-  // var curr_name = await fetchUser();
-
-  // fetchUser().then(x=> {
-  //   curr_name = x;
-  //   return curr_name;
-  // });
-
-  // console.log(curr_name);
-  
-  // (async () => {
-  //   curr_name = await fetchUser();
-  //   console.log(curr_name);
-  // })()
-  // // const curr_name = fetchUser();
-  // console.log(curr_name);
-
-  // return (
-  //   <section>
-  //      {[...all_user.entries()].map(([userId, userData]) => {
-  //       <div key={userData.id} className="card">
-  //         <div className="titlePic">
-  //           <h1>{userData.name}</h1>
-  //           <MDBCardImage
-  //             style={{ width: '180px', borderRadius: '10px' }}
-  //             src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp'
-  //             alt='Generic placeholder image'
-  //             fluid />
-  //         </div>
-  //         <p className="title">{userData.university}</p>
-  //         {/* <p>Skills: {(userData.skills).join(', ')}</p> */}
-  //         <p>Interests: Environment, Healthcare</p>
-  //         <p><button><Link to='/profile'>More Info</Link></button></p>
-  //       </div>
-  //     })}
-  //   </section>
-  // );
+  console.log("hi");
 
 
   return (
