@@ -57,9 +57,11 @@ export default function ProfileListSearch() {
   }, []);
   fetchUser();
 
-  let filters = ["Java"];
+  //console.log(all_user);
 
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  let filters = ["java"];
+
+  const [selectedFilters, setSelectedFilters] = useState(filters);
   const [filteredItems, setFilteredItems] = useState(all_user);
 
 
@@ -74,19 +76,31 @@ export default function ProfileListSearch() {
   const filterItems = () => {
     // change the array to put in the right user_data information
     console.log("topof filter items");
+    console.log(selectedFilters);
+    console.log("all user data " + all_user);
     if (selectedFilters.length > 0) {
       let tempItems = [];
       {[...all_user.entries()].map(([userId, userData]) => {
+          
           // checks all skills filters
-          if (userData.skills[0] != null) {
+          if (userData.skills[0] != null) { // skills[0]
+
+
+            console.log("userData " + userData.skills.length);
+
+
+            console.log("sahan");
+            
 
             for (let i = 0; i < (userData.skills).length; i++) {
 
+              console.log(userData.skills);
+
               //console.log(userData.skills.length);
               if (selectedFilters.includes((userData.skills)[i].toLowerCase())) {
-                //console.log("hi");
+                console.log("hi");
                 // console.log("user data added: " + userData);
-                tempItems.add(userData);
+                tempItems.push(userData);
                 i = userData.skills.length;
               }
 
@@ -124,7 +138,7 @@ export default function ProfileListSearch() {
             console.log(filteredItems);
           </script> */}
       
-          {filteredItems.map((item) => {
+          {filteredItems.map((id, item) => {
           
             // console.log(item); // Add this line to print out each item
             return <ProfileCard myObject={item}/>;
