@@ -41,6 +41,10 @@ async function fetchUser() {
 
 export default function ProfileListSearch() {
 
+  window.addEventListener("DOMContentLoaded", (event) => {
+    handleFilterButtonClick();
+  });
+
   const [all_user, setCurrUser] = useState([]);
 
   useEffect(() => {
@@ -54,53 +58,81 @@ export default function ProfileListSearch() {
   }, []);
   fetchUser();
 
-  let selectedNameFilters = ["manasa"];
-  let selectedSkillsFilters = ["java"];  
+  let selectedNameFilters = [];
+  let selectedSkillsFilters = [];  
   let selectedInterestsFilters = [];
 
   
   const [filteredItems, setFilteredItems] = useState(all_user);
   
-  // // name
-  // const [selectedNameFilters, setSelectedNameFilters] = useState([]);
-
-  // // skills
-  // const [selectedSkillsFilters, setSelectedSkillsFilters] = useState([]);
-  
-  // // interests
-  // const [selectedInterestsFilters, setSelectedInterestsFilters] = useState([]);
-
 
   const handleFilterButtonClick = () => {
-    // setSelectedNameFilters(nameFilters);
-    // setSelectedSkillsFilters(skillsFilters);
-    // setSelectedInterestsFilters(interestsFilters);
     filterItems();
+    document.getElementById('filteredItems').innerHTML = "selected filters: ";
   };
 
-  // useEffect(() => {
-  //   filterItems();
-  // }, [selectedNameFilters, selectedSkillsFilters, selectedInterestsFilters]);
+  const addNameFilter = (event) => {
+    if (event.key === 'Enter') {
+      console.log("in filter names");
+      const nameFilterInput = document.getElementById('nameFilterInput');
+      const filteredItemsDiv = document.getElementById('filteredItems');
+      const indNameFilter = nameFilterInput.value.toLowerCase();
+      if (!selectedNameFilters.includes(indNameFilter)) {
+        console.log("in if statement");
+        selectedNameFilters.push(indNameFilter);
+        // const filteredItem = document.getElementById('filteredItem');
+        // filteredItem.innerText = `${selectedSkillsFilters}`;
+        filteredItemsDiv.innerHTML += "\n" + indNameFilter;
 
+      }
+      // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
 
-  // const addFilterName = (event) => {
-  //   if (event.key === 'Enter') {
-  //     const skillsFilterInput = document.getElementById('skillsFilterInput');
-  //     const filteredItemsDiv = document.getElementById('filteredItems');
-  //     const indSkillFilter = skillsFilterInput.value.toLowerCase();
-  //     if (!selectedSkillsFilters.includes(indSkillFilter)) {
-  //       selectedSkillsFilters.push(indSkillFilter);
-  //       const filteredItem = document.createElement('div');
-  //       filteredItem.innerText = `${selectedSkillsFilters}`;
-  //       filteredItemsDiv.appendChild(filteredItem);
+      nameFilterInput.value = '';
+      //this.setState({reload:!this.state.reload});
+    }
+  };
+  
+  const addSkillsFilter = (event) => {
+    if (event.key === 'Enter') {
+      console.log("in filter names");
+      const skillsFilterInput = document.getElementById('skillsFilterInput');
+      const filteredItemsDiv = document.getElementById('filteredItems');
+      const indSkillFilter = skillsFilterInput.value.toLowerCase();
+      if (!selectedSkillsFilters.includes(indSkillFilter)) {
+        console.log("in if statement");
+        selectedSkillsFilters.push(indSkillFilter);
+        // const filteredItem = document.getElementById('filteredItem');
+        // filteredItem.innerText = `${selectedSkillsFilters}`;
+        filteredItemsDiv.innerHTML += "\n" + indSkillFilter;
 
-  //     }
-  //     // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
+      }
+      // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
 
-  //     skillsFilterInput.value = '';
-  //     //this.setState({reload:!this.state.reload});
-  //   }
-  // };
+      skillsFilterInput.value = '';
+      //this.setState({reload:!this.state.reload});
+    }
+  };
+
+  const addInterestsFilter = (event) => {
+    if (event.key === 'Enter') {
+      console.log("in filter names");
+      const interestsFilterInput = document.getElementById('interestsFilterInput');
+      const filteredItemsDiv = document.getElementById('filteredItems');
+      const indInterestFilter = interestsFilterInput.value.toLowerCase();
+      if (!selectedInterestsFilters.includes(indInterestFilter)) {
+        console.log("in if statement");
+        selectedInterestsFilters.push(indInterestFilter);
+        // const filteredItem = document.getElementById('filteredItem');
+        // filteredItem.innerText = `${selectedSkillsFilters}`;
+        filteredItemsDiv.innerHTML += "\n" + indInterestFilter;
+
+      }
+      // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
+
+      interestsFilterInput.value = '';
+      //this.setState({reload:!this.state.reload});
+    }
+  };
 
   const filterItems = () => {
     if (selectedNameFilters.length > 0  || selectedSkillsFilters.length > 0 || selectedInterestsFilters.length > 0 ) {
@@ -164,28 +196,38 @@ export default function ProfileListSearch() {
 
   return (
 
+    
+
+
     <div>
+      <Layout></Layout>
+      <div className='topBar'>
+        <div className='header'>Connect</div>
+          <div class="topnav">
+                <Link to='/profileList'>Individual</Link>
+                <Link to='/projectsList'>Projects</Link>
+                <Link to ="/matched">Matched</Link>
+          </div>      
+        </div>
+      <body onload="handleFilterButtonClick()"></body>
 
-      {/* <div>
-          Name
-          <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." />
-          Major
-          <input type="text" id="majorFilterInput" placeholder="Enter in Major Filters.." />
-          Skills
-          <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addFilterName} />
-          Interests
-          <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." />
 
-          <button id="filterButton" onClick={handleFilterButtonClick()}>
-            Enter Filters
-          </button>
-
-          <div id="filteredItems">initial</div>
-
-      </div> */}
       
-      <button onClick={() => handleFilterButtonClick()}>
-          </button>
+      
+      <div>
+          Name
+          <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
+          Skills
+          <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
+          Interests
+          <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
+          <button onClick={() => handleFilterButtonClick()}>Enter Filters</button>
+          <div id="filteredItems">selected filters: </div>
+
+      </div>
+      
+      {/* <button onClick={() => handleFilterButtonClick()}>
+          </button> */}
 
       <div className="items-container">
 
