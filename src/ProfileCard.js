@@ -64,7 +64,8 @@ async function fetchUser() {
 export default function ProfileCard(props) {
 
   const { myObject } = props;
-  console.log("hi");
+  console.log("in profile card");
+  console.log(myObject);
 
 
   return (
