@@ -7,6 +7,7 @@ import { API,graphqlOperation } from 'aws-amplify';
 import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
+import './cardFilter.css'
 
 async function fetchUser() {
   
@@ -82,7 +83,7 @@ export default function ProfileListSearch() {
         selectedNameFilters.push(indNameFilter);
         // const filteredItem = document.getElementById('filteredItem');
         // filteredItem.innerText = `${selectedSkillsFilters}`;
-        filteredItemsDiv.innerHTML += "\n" + indNameFilter;
+        filteredItemsDiv.innerHTML += "<br>" + indNameFilter;
 
       }
       // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
@@ -209,33 +210,38 @@ export default function ProfileListSearch() {
                 <Link to ="/matched">Matched</Link>
           </div>      
         </div>
+      
+      <div className="backgroundCards">
       <body onload="handleFilterButtonClick()"></body>
+        <div className='filterBar'>
+            Name
+            <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
+            <br></br>
+            Skills
+            <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
+            <br></br>
+            Interests
+            <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
+            <br></br>
+            <button onClick={() => handleFilterButtonClick()}>Enter Filters</button>
+            <br></br>
+            <div id="filteredItems">selected filters: </div>
 
-
-      
-      
-      <div>
-          Name
-          <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
-          Skills
-          <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
-          Interests
-          <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
-          <button onClick={() => handleFilterButtonClick()}>Enter Filters</button>
-          <div id="filteredItems">selected filters: </div>
-
+        </div>
+        <div className="items-container">      
+          {filteredItems.map((id, item) => {
+            return <ProfileCard myObject={id}/>;
+          })}
+        </div>
       </div>
+      
       
       {/* <button onClick={() => handleFilterButtonClick()}>
           </button> */}
 
       <div className="items-container">
 
-      <div className="items-container">      
-          {filteredItems.map((id, item) => {
-            return <ProfileCard myObject={id}/>;
-          })}
-        </div>
+      
       </div>
     </div>
   );

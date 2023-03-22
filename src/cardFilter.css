@@ -1,0 +1,28 @@
+.filterBar {
+    justify-content: center;
+    flex-direction: column;
+    display: inline-flex;
+    background-color: white;
+    height: 100%;
+    float: left;
+    margin-top: 2%;
+    border-radius: 1%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: lightgray;
+}
+
+.backgroundCards {
+    height: 100%;
+    width: 100%;
+    display: inline-flexbox;
+    flex-direction: row;
+}
+
+.cards {
+    flex-direction: row;
+    display: inline-flex;
+    float: right;
+}
