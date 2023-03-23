@@ -13,45 +13,23 @@ async function fetchUser() {
   const userMap = new Map();
   let curr_user = '';
   try {
-    //const allUsers = await API.graphql({ query: queries.listUsers });
-    //console.log(allUsers); // result: { "data": { "listTodos": { "items": [/* ..... */] } } }
-
-    //Fetch a single record by its identifier
-    // const oneUser = await API.graphql({
-    // query: queries.getUserByUsername,
-    // //variables: { id: '5c5c43e1-032a-473c-a425-d61141094381' }
-    // variables: { username: "manasaling" }
-    // });
-
     const allUsers = await API.graphql ({
       query : listUsers
     });
 
    
     allUsers.data.listUsers.items.forEach(user => {
-     // console.log(user.id, user.name);
      const userData = {
       name: user.name,
       university: user.university,
       skills: user.skills,
       interests: user.interests
   
-      // add other relevant attributes here
     };
     
     userMap.set(user.id, userData);
     });
 
-    // const oneUser = await API.graphql({
-    //   query: getUsers,
-    //   variables: { id: '5c5c43e1-032a-473c-a425-d61141094381' }
-    //   //variables: { username: 'pranatidani' },
-    //   // debug: true
-    //   });
-
-    // console.log(oneUser);
-    // curr_user = (oneUser.data.getUsers.name);
-    // //console.log(curr_user);
 
   }
    catch (err) {
@@ -70,23 +48,31 @@ export default function ProfileCard(props) {
 
   return (
 
-    <section>
+    <div className="background">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <div class="card">
-        <div class = "titlePic">
-        <h1>{myObject.name}</h1>
-        <MDBCardImage
-              style={{ width: '180px', borderRadius: '10px' }}
+      <div>
+      <div class = "profile-titlePic">
+        <p class="profile-title-name">{myObject.name}</p>
+        <MDBCardImage class = "title-profile-pic"
+              style={{ width: '200px',  }}
               src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp'
               alt='Generic placeholder image'
               fluid />
         </div>
-        <p class="title">{myObject.university}</p>
-        <p>Skills: {(myObject.skills).join(', ')}</p>
-        <p>Interests: {(myObject.interests).join(', ')}</p>
-        
-        <p><button><Link to='/profile'>More Info</Link></button></p>
-        
+        <div class = "profile-credentials">
+
+        <p><i ></i>{myObject.university}</p>
+        <p><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills: {(myObject.skills).join(', ')}</p>
+        <p><i className="fa fa-globe fa-fw w3-margin-right icon-blue"></i>Interests: {(myObject.interests).join(', ')}</p>
+
         </div>
-    </section>
+       
+
+
+        <p><button class="profile-button"><Link to='/profile'>More Info</Link></button></p>
+      </div>
+        </div>
+    </div>
   );
 }
