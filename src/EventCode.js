@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UserHome from "./UserHome";
 import './EventCode.css'
 import ProfileList from "./ProfileList";
+import ProfileListSearch from "./ProfileListSearch";
 const EventCode = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -80,7 +81,7 @@ const EventCode = () => {
 
     return ( 
         <div className="content">
-           {isSubmitted ? <ProfileList/>  : renderForm}
+           {isSubmitted ? <ProfileListSearch/>  : renderForm}
         </div>
      );
 }
