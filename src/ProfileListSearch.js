@@ -225,7 +225,7 @@ export default function ProfileListSearch() {
             <br></br>
             <button onClick={() => handleFilterButtonClick()}>Enter Filters</button>
             <br></br>
-            <div id="filteredItems">selected filters: </div>
+            <div id="filteredItems">Selected Filters: </div>
 
         </div>
         <div className="items-container">      

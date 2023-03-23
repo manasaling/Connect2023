@@ -48,10 +48,39 @@ export default function ProfileCard(props) {
 
   return (
 
-    <section>
+    // <section>
+    //    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    //   <div class="profile-card">
+    //   <div class = "swing">
+    //   <div class = "profile-titlePic">
+    //     <p class="profile-title-name">{myObject.name}</p>
+    //     <MDBCardImage class = "title-profile-pic"
+    //           style={{ width: '200px',  }}
+    //           src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp'
+    //           alt='Generic placeholder image'
+    //           fluid />
+    //   </div>
+
+
+    //   <div class = "profile-credentials">
+    //     <p><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-blue"></i>{myObject.university}</p>
+    //     <p><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills: {(myObject.skills).join(', ')}</p>
+    //     <p><i className="fa fa-globe fa-fw w3-margin-right icon-blue"></i>Interests: {(myObject.interests).join(', ')}</p>
+    //   </div>
+       
+    //     <p><button class="profile-button"><Link to='/profile'>More Info</Link></button></p>
+    //   </div>
+    //     </div>
+       
+    // </section>
+
+    
+  
+    <div className="background">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-      <div class="profile-card">
-      <div class = "swing">
+      <div class="card">
+      <div class = "card-info-without-button">
+
       <div class = "profile-titlePic">
         <p class="profile-title-name">{myObject.name}</p>
         <MDBCardImage class = "title-profile-pic"
@@ -60,19 +89,19 @@ export default function ProfileCard(props) {
               alt='Generic placeholder image'
               fluid />
         </div>
+        
         <div class = "profile-credentials">
-
         <p><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-blue"></i>{myObject.university}</p>
         <p><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills: {(myObject.skills).join(', ')}</p>
         <p><i className="fa fa-globe fa-fw w3-margin-right icon-blue"></i>Interests: {(myObject.interests).join(', ')}</p>
-
         </div>
-       
-
-
+        </div>
         <p><button class="profile-button"><Link to='/profile'>More Info</Link></button></p>
-      </div>
+
+
+      
         </div>
-    </section>
+  
+    </div>
   );
 }

@@ -10,8 +10,9 @@
     padding-left: 0.5%;
     padding-right: 0.5%;
     padding-top: 1%;
-    padding-bottom: 1%;
+    padding-bottom: 100%;
     background-color: lightgray;
+    width: 18%;
 }
 
 .backgroundCards {
@@ -25,4 +26,22 @@
     flex-direction: row;
     display: inline-flex;
     float: right;
+}
+
+#nameFilterInput {
+    border-radius: 8px;
+    height: 30px;
+    font-weight: 100;
+}
+
+#skillsFilterInput {
+    border-radius: 8px;
+    height: 30px;
+    font-weight: 100;
+}
+
+#interestsFilterInput {
+    border-radius: 8px;
+    height: 30px;
+    font-weight: 100;
 }
