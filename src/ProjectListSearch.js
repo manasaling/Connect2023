@@ -2,39 +2,37 @@ import React from 'react';
 import Layout from './Layout'
 import { Link } from 'react-router-dom'
 import './MatchedProfiles.css';
-import ProfileCard from './ProfileCard';
+import ProjectCard from './ProjectCard';
 import { API,graphqlOperation } from 'aws-amplify';
 import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
 import './cardFilter.css'
+import companyPicture from './images/fashionCompany.png';
+
 
 async function fetchUser() {
-  
 
   const userMap = new Map();
   let curr_user = '';
   try {
 
-    const allUsers = await API.graphql ({
-      query : listUsers
-    });
-   
-    allUsers.data.listUsers.items.forEach(user => {
-     const userData = {
-      name: user.name,
-      university: user.university,
-      skills: user.skills || [],
-      interests: user.interests || []
+      /*
+    hard coding the projects data:
+    needs project name, project category, 
+  */
 
-    };
-    
-    userMap.set(user.id, userData);
-    });
+    const userData1 = {name: "Textbook Find", interests: "Education Technology", skills: ["Figma", "Program Manager"], logo: "textbookLogo.jpg", description: "Helping students find textbooks more easily at a lower cost."};
+    const userData2 = {name: "Friends Together", interests: "Social", skills: ["App Development"], logo: "friendsLogo.jpg", description: "Finding your best friends through an IOS app"};
+    const userData3 = {name: "Matching Clothes", interests: "Fashion", skills: ["Machine Learning", "Figma"], logo: "fashionCompany.png", description: "A way to tell you what to wear with what you have!"};
+
+    userMap.set(1, userData1);
+    userMap.set(2, userData2);
+    userMap.set(3, userData3);
 
   }
    catch (err) {
-      console.log("error fetching user: ", err);
+      console.log("error fetching project: ", err);
   }
 
   return userMap;
@@ -61,7 +59,7 @@ export default function ProfileListSearch() {
 
   let selectedNameFilters = [];
   let selectedSkillsFilters = [];  
-  let selectedInterestsFilters = [];
+  let selectedInterestsFilters = []; // this is category
 
   
   const [filteredItems, setFilteredItems] = useState(all_user);
@@ -69,7 +67,7 @@ export default function ProfileListSearch() {
 
   const handleFilterButtonClick = () => {
     filterItems();
-    document.getElementById('filteredItems').innerHTML = "selected filters: ";
+    document.getElementById('filteredItems').innerHTML = "Selected Filters: ";
   };
 
   const addNameFilter = (event) => {
@@ -165,15 +163,14 @@ export default function ProfileListSearch() {
             
           }
             // interests
-            if (userData.interests[0] != null && !alreadyAdded) {
-              for (let i = 0; i < (userData.interests).length; i++) {
-                  if (selectedInterestsFilters.includes((userData.interests)[i].toLowerCase())) {
+            if (userData.interests != null && !alreadyAdded) {
+              
+                  if (selectedInterestsFilters.includes((userData.interests).toLowerCase())) {
                     tempItems.push(userData);
-                    i = userData.interests.length;
                     alreadyAdded = true;
                   }
     
-                }
+              
                 
               }
                         
@@ -212,16 +209,16 @@ export default function ProfileListSearch() {
         </div>
       
       <div className="backgroundCards">
-      <body onload="handleFilterButtonClick()"></body>
+      <body onLoad="handleFilterButtonClick()"></body>
         <div className='filterBar'>
-            Name
-            <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
+            Project Name
+            <input type="text" id="nameFilterInput" placeholder="Enter in Project Name.." onKeyUp = {addNameFilter}/>
             <br></br>
-            Skills
-            <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
+            Skills Needed
+            <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Needed Filters.." onKeyUp={addSkillsFilter} />
             <br></br>
-            Interests
-            <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
+            Category of Project
+            <input type="text" id="interestsFilterInput" placeholder="Enter in Project Category Filters.." onKeyUp={addInterestsFilter} />
             <br></br>
             <button onClick={() => handleFilterButtonClick()}>Enter Filters</button>
             <br></br>
@@ -230,7 +227,7 @@ export default function ProfileListSearch() {
         </div>
         <div className="items-container">      
           {filteredItems.map((id, item) => {
-            return <ProfileCard myObject={id}/>;
+            return <ProjectCard myObject={id}/>;
           })}
         </div>
       </div>

@@ -36,6 +36,12 @@
     max-width: 100%; /* set max-width for the card */
     word-wrap: break-word; /* allow text to break and wrap */
   }
+
+  .project-description-name {
+   
+    padding-right: 30px;
+    text-align: center;
+  }
   
   @media only screen and (max-width: 768px) {
     .profile-title-name {
