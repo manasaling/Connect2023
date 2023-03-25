@@ -14,6 +14,12 @@
     "categories": {
       "api": {
         "connect": {}
+      },
+      "auth": {
+        "connect": {}
+      },
+      "storage": {
+        "s3connectstoragec5f2ff39": {}
       }
     }
   }

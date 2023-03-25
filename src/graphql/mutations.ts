@@ -13,6 +13,7 @@ export const createUsers = /* GraphQL */ `
       university
       skills
       interests
+      image
       id
       createdAt
       updatedAt
@@ -33,6 +34,7 @@ export const updateUsers = /* GraphQL */ `
       university
       skills
       interests
+      image
       id
       createdAt
       updatedAt
@@ -53,6 +55,7 @@ export const deleteUsers = /* GraphQL */ `
       university
       skills
       interests
+      image
       id
       createdAt
       updatedAt

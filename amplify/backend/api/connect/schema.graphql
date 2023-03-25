@@ -8,6 +8,7 @@ type Users @model @auth(rules: [{allow: public}]) {
   university: String!
   skills: [String]
   interests: [String]
+  image: String!
 }
 
 type Skills {

@@ -47,6 +47,13 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
+                "image": {
+                    "name": "image",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -118,5 +125,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.3.5",
-    "version": "d67f6f3e6460ad23bc7b7d1f7faaaa5f"
+    "version": "7fa8d0c02d57abb0f50a19b3411158e1"
 };

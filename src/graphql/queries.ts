@@ -10,6 +10,7 @@ export const getUserByUsername = /* GraphQL */ `
       university
       skills
       interests
+      image
       id
       createdAt
       updatedAt
@@ -27,6 +28,7 @@ export const getUsers = /* GraphQL */ `
       university
       skills
       interests
+      image
       id
       createdAt
       updatedAt
@@ -49,6 +51,7 @@ export const listUsers = /* GraphQL */ `
         university
         skills
         interests
+        image
         id
         createdAt
         updatedAt
@@ -80,6 +83,7 @@ export const syncUsers = /* GraphQL */ `
         university
         skills
         interests
+        image
         id
         createdAt
         updatedAt

@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3connectstoragec5f2ff39",
+  "bucketName": "connect-storage-c5f2ff39",
+  "policyUUID": "58da6a82",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
