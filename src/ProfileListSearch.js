@@ -8,6 +8,7 @@ import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
 import './cardFilter.css'
+import { deleteUsers } from './graphql/mutations';
 
 async function fetchUser() {
   
@@ -19,17 +20,26 @@ async function fetchUser() {
     const allUsers = await API.graphql ({
       query : listUsers
     });
+
+    console.log(allUsers);
    
     allUsers.data.listUsers.items.forEach(user => {
-     const userData = {
-      name: user.name,
-      university: user.university,
-      skills: user.skills || [],
-      interests: user.interests || []
 
-    };
+      if (user._deleted != true) {
+
+        const userData = {
+          name: user.name,
+          university: user.university,
+          skills: user.skills || [],
+          interests: user.interests || [],
+          image: user.image  // added
     
-    userMap.set(user.id, userData);
+        };
+        
+        userMap.set(user.id, userData);
+
+      }
+     
     });
 
   }
@@ -37,10 +47,33 @@ async function fetchUser() {
       console.log("error fetching user: ", err);
   }
 
+  
+
   return userMap;
 }
 
+const deleteUserData = async (userId, version) => {
+  try {
+    const input = { id: userId, _version: version };
+    const result = await API.graphql(graphqlOperation(deleteUsers, { input }));
+    console.log('User deleted:', result.data.deleteUser);
+  } catch (error) {
+    console.error(error);
+  }
+
+  // try {
+  //   const { data } = await API.graphql(graphqlOperation(getUsers, { id: userId }));
+  //   const user = data.getUsers;
+  //   console.log('User exists:', user);
+  // } catch (error) {
+  //   console.error('User does not exist:', error);
+  // }
+};
+
+
 export default function ProfileListSearch() {
+
+  deleteUserData("6f7081ee-f34c-4dc9-b02a-e8b3d80b7415", 1);
 
   window.addEventListener("DOMContentLoaded", (event) => {
     handleFilterButtonClick();

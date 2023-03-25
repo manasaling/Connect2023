@@ -187,12 +187,14 @@ export default function UsersUpdateForm(props) {
     university: "",
     skills: [],
     interests: [],
+    image: "",
   };
   const [username, setUsername] = React.useState(initialValues.username);
   const [name, setName] = React.useState(initialValues.name);
   const [university, setUniversity] = React.useState(initialValues.university);
   const [skills, setSkills] = React.useState(initialValues.skills);
   const [interests, setInterests] = React.useState(initialValues.interests);
+  const [image, setImage] = React.useState(initialValues.image);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = usersRecord
@@ -205,6 +207,7 @@ export default function UsersUpdateForm(props) {
     setCurrentSkillsValue("");
     setInterests(cleanValues.interests ?? []);
     setCurrentInterestsValue("");
+    setImage(cleanValues.image);
     setErrors({});
   };
   const [usersRecord, setUsersRecord] = React.useState(users);
@@ -226,6 +229,7 @@ export default function UsersUpdateForm(props) {
     university: [{ type: "Required" }],
     skills: [],
     interests: [],
+    image: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -257,6 +261,7 @@ export default function UsersUpdateForm(props) {
           university,
           skills,
           interests,
+          image,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -317,6 +322,7 @@ export default function UsersUpdateForm(props) {
               university,
               skills,
               interests,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.username ?? value;
@@ -345,6 +351,7 @@ export default function UsersUpdateForm(props) {
               university,
               skills,
               interests,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -373,6 +380,7 @@ export default function UsersUpdateForm(props) {
               university: value,
               skills,
               interests,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.university ?? value;
@@ -397,6 +405,7 @@ export default function UsersUpdateForm(props) {
               university,
               skills: values,
               interests,
+              image,
             };
             const result = onChange(modelFields);
             values = result?.skills ?? values;
@@ -442,6 +451,7 @@ export default function UsersUpdateForm(props) {
               university,
               skills,
               interests: values,
+              image,
             };
             const result = onChange(modelFields);
             values = result?.interests ?? values;
@@ -477,6 +487,35 @@ export default function UsersUpdateForm(props) {
           {...getOverrideProps(overrides, "interests")}
         ></TextField>
       </ArrayField>
+      <TextField
+        label="Image"
+        isRequired={false}
+        isReadOnly={false}
+        value={image}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              username,
+              name,
+              university,
+              skills,
+              interests,
+              image: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.image ?? value;
+          }
+          if (errors.image?.hasError) {
+            runValidationTasks("image", value);
+          }
+          setImage(value);
+        }}
+        onBlur={() => runValidationTasks("image", image)}
+        errorMessage={errors.image?.errorMessage}
+        hasError={errors.image?.hasError}
+        {...getOverrideProps(overrides, "image")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

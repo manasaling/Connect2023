@@ -2,24 +2,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getUserByUsername = /* GraphQL */ `
-  query GetUserByUsername($username: String!) {
-    getUserByUsername(username: $username) {
-      username
-      name
-      university
-      skills
-      interests
-      image
-      id
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
 export const getUsers = /* GraphQL */ `
   query GetUsers($id: ID!) {
     getUsers(id: $id) {
