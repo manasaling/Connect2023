@@ -8,6 +8,7 @@ import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
 import './cardFilter.css'
+import './Login.css'
 
 async function fetchUser() {
   
@@ -104,7 +105,7 @@ export default function ProfileListSearch() {
         selectedSkillsFilters.push(indSkillFilter);
         // const filteredItem = document.getElementById('filteredItem');
         // filteredItem.innerText = `${selectedSkillsFilters}`;
-        filteredItemsDiv.innerHTML += "\n" + indSkillFilter;
+        filteredItemsDiv.innerHTML += "<br>" + indSkillFilter;
 
       }
       // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
@@ -125,7 +126,7 @@ export default function ProfileListSearch() {
         selectedInterestsFilters.push(indInterestFilter);
         // const filteredItem = document.getElementById('filteredItem');
         // filteredItem.innerText = `${selectedSkillsFilters}`;
-        filteredItemsDiv.innerHTML += "\n" + indInterestFilter;
+        filteredItemsDiv.innerHTML += "<br>" + indInterestFilter;
 
       }
       // setSkillsArray(prevSkillsArray => [...prevSkillsArray, skillsFilter]);
@@ -214,25 +215,31 @@ export default function ProfileListSearch() {
       <div className="backgroundCards">
       <body onload="handleFilterButtonClick()"></body>
         <div className='filterBar'>
-            Name
-            <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
+      
+            <label class="filterTitle">FILTERS</label>
             <br></br>
-            Skills
-            <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
-            <br></br>
-            Interests
-            <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
-            <br></br>
-            <button onClick={() => handleFilterButtonClick()}>Enter Filters</button>
-            <br></br>
-            <div id="filteredItems">Selected Filters: </div>
-
+              <label class="filterName">Name</label>
+              <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
+              <br></br>
+              <label class="filterName">Skills</label>
+              <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
+              <br></br>
+              <label class="filterName">Interests</label>
+              <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
+              <br></br>
+              <button class="enterFilters" onClick={() => handleFilterButtonClick()}>Enter Filters</button>
+              <br></br>
+              <div class= "filteredItems" id="filteredItems">Selected Filters: </div>
+          </div>
+            
+        <div className="cards-wrap">
+          <div className="items-container">      
+            {filteredItems.map((id, item) => {
+              return <ProfileCard myObject={id}/>;
+            })}
+          </div>
         </div>
-        <div className="items-container">      
-          {filteredItems.map((id, item) => {
-            return <ProfileCard myObject={id}/>;
-          })}
-        </div>
+        
       </div>
       
       
@@ -243,6 +250,9 @@ export default function ProfileListSearch() {
 
       
       </div>
+
     </div>
+
+
   );
 }
