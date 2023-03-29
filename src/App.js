@@ -36,6 +36,7 @@ function App() {
           <Route path="/projectsList" element={<ProjectsList/>} />
           <Route path="/profileList" element={<SideBar/>} />
           <Route path="/profileListTotal" element={<ProfileListSearch/>} />
+          <Route path="/projectListTotal" element={<ProjectsList/>}/>
           
           
           
