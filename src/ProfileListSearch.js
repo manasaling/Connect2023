@@ -10,6 +10,8 @@ import SideBar from './SideBar';
 import './cardFilter.css'
 import './Login.css'
 
+let filtersNone = true;
+
 async function fetchUser() {
   
 
@@ -22,15 +24,22 @@ async function fetchUser() {
     });
    
     allUsers.data.listUsers.items.forEach(user => {
-     const userData = {
-      name: user.name,
-      university: user.university,
-      skills: user.skills || [],
-      interests: user.interests || []
+     
+      if (user._deleted != true) {
+        const userData = {
+        name: user.name,
+        university: user.university,
+        skills: user.skills || [],
+        interests: user.interests || [],
+        image: user.image
 
-    };
+      };
+
+      userMap.set(user.id, userData);
+
+    }
     
-    userMap.set(user.id, userData);
+    
     });
 
   }
@@ -69,12 +78,19 @@ export default function ProfileListSearch() {
   
 
   const handleFilterButtonClick = () => {
+    document.getElementById("defaultText").style.display = 'none';
     filterItems();
-    document.getElementById('filteredItems').innerHTML = "selected filters: ";
+    document.getElementById('filteredItems').innerHTML = "selected filters: <br> NONE ";
+    filtersNone = true;
   };
 
   const addNameFilter = (event) => {
+
     if (event.key === 'Enter') {
+      if (filtersNone == true) {
+        document.getElementById('filteredItems').innerHTML = "selected filters:";
+      }
+      filtersNone = false;
       console.log("in filter names");
       const nameFilterInput = document.getElementById('nameFilterInput');
       const filteredItemsDiv = document.getElementById('filteredItems');
@@ -96,6 +112,10 @@ export default function ProfileListSearch() {
   
   const addSkillsFilter = (event) => {
     if (event.key === 'Enter') {
+      if (filtersNone == true) {
+        document.getElementById('filteredItems').innerHTML = "selected filters:";
+      }
+      filtersNone = false;
       console.log("in filter names");
       const skillsFilterInput = document.getElementById('skillsFilterInput');
       const filteredItemsDiv = document.getElementById('filteredItems');
@@ -117,6 +137,10 @@ export default function ProfileListSearch() {
 
   const addInterestsFilter = (event) => {
     if (event.key === 'Enter') {
+      if (filtersNone == true) {
+        document.getElementById('filteredItems').innerHTML = "selected filters:";
+      }
+      filtersNone = false;
       console.log("in filter names");
       const interestsFilterInput = document.getElementById('interestsFilterInput');
       const filteredItemsDiv = document.getElementById('filteredItems');
@@ -196,6 +220,7 @@ export default function ProfileListSearch() {
   }
   };
 
+
   return (
 
     
@@ -213,27 +238,36 @@ export default function ProfileListSearch() {
         </div>
       
       <div className="backgroundCards">
-      <body onload="handleFilterButtonClick()"></body>
+     
         <div className='filterBar'>
       
-            <label class="filterTitle">FILTERS</label>
+            <label className="filterTitle">FILTERS</label>
             <br></br>
-              <label class="filterName">Name</label>
+              <label className="filterName">Name</label>
               <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
               <br></br>
-              <label class="filterName">Skills</label>
+              <label className="filterName">Skills</label>
               <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
               <br></br>
-              <label class="filterName">Interests</label>
+              <label className="filterName">Interests</label>
               <input type="text" id="interestsFilterInput" placeholder="Enter in Interests Filters.." onKeyUp={addInterestsFilter} />
               <br></br>
-              <button class="enterFilters" onClick={() => handleFilterButtonClick()}>Enter Filters</button>
+              <button className="enterFilters" onClick={() => handleFilterButtonClick()}>Enter Filters</button>
               <br></br>
-              <div class= "filteredItems" id="filteredItems">Selected Filters: </div>
+              <div className= "filteredItems" id="filteredItems">Selected Filters: </div>
           </div>
             
         <div className="cards-wrap">
-          <div className="items-container">      
+          <div className="items-container">   
+          <div className="defaultText" id="defaultText">
+
+          <p id="letsGetStarted">Let's Get Started!</p>  
+          <p id="ConnectText"><i><b>Connect</b></i> With Your Perfect Team Today</p> 
+          <button id="defaultButton" onClick={handleFilterButtonClick}>Display Participants</button>
+
+          </div>
+          
+
             {filteredItems.map((id, item) => {
               return <ProfileCard myObject={id}/>;
             })}

@@ -2,48 +2,33 @@ import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import './ProfileCard.css';
 import { Link } from "react-router-dom";
-import { API,graphqlOperation } from 'aws-amplify';
 import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
-
-var curr_user;
-
-async function fetchUser() {
-
-  const userMap = new Map();
-  let curr_user = '';
-  try {
-    const allUsers = await API.graphql ({
-      query : listUsers
-    });
-
-   
-    allUsers.data.listUsers.items.forEach(user => {
-     const userData = {
-      name: user.name,
-      university: user.university,
-      skills: user.skills,
-      interests: user.interests
-  
-    };
-    
-    userMap.set(user.id, userData);
-    });
+import { API, Auth, Storage } from 'aws-amplify';
 
 
-  }
-   catch (err) {
-      console.log("error fetching user: ", err);
-  }
-
-  return userMap;
-}
 
 export default function ProfileCard(props) {
 
   const { myObject } = props;
   console.log("in profile card");
   console.log(myObject);
+
+  const [imageSrc, setImageSrc] = useState(null); // state variable to store the image source
+
+  useEffect(() => {
+    console.log( Auth.configure() )
+    async function getImage() {
+      try {
+        const imageSrc = await Storage.get(myObject.image); // retrieve the image from S3
+        setImageSrc(imageSrc);
+      } catch (error) {
+        console.log('Error retrieving image: ', error);
+      }
+    }
+
+    getImage();
+  }, [myObject.image]);
 
 
   return (
