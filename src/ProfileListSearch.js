@@ -31,7 +31,9 @@ async function fetchUser() {
         university: user.university,
         skills: user.skills || [],
         interests: user.interests || [],
-        image: user.image
+        image: user.image,
+        experiences: user.experiences || [],
+        education: user.education || []
 
       };
 
@@ -231,9 +233,9 @@ export default function ProfileListSearch() {
       <div className='topBar'>
         <div className='header'>Connect</div>
           <div class="topnav">
-                <Link to='/profileList'>Individual</Link>
+                <Link to='/profileListTotal'>Individual</Link>
                 <Link to='/projectsList'>Projects</Link>
-                <Link to ="/matched">Matched</Link>
+                
           </div>      
         </div>
       
@@ -263,7 +265,10 @@ export default function ProfileListSearch() {
 
           <p id="letsGetStarted">Let's Get Started!</p>  
           <p id="ConnectText"><i><b>Connect</b></i> With Your Perfect Team Today</p> 
-          <button id="defaultButton" onClick={handleFilterButtonClick}>Display Participants</button>
+          {/* <button id="defaultButton" onClick={handleFilterButtonClick}>Display Participants</button> */}
+          <br></br>
+          <button id="defaultButton" onClick={handleFilterButtonClick} >Display Participants</button>
+
 
           </div>
           

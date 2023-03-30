@@ -3,9 +3,12 @@ import React from 'react';
 import './IndividualProfile.css';
 import profilePicture from './images/ramenFood.jpg';
 
-const IndividualProfile = () => {
-//class IndividualProfile extends React.Component {
-   // render() {
+const IndividualProfile = (props) => {
+
+  console.log("img received: " + props.myProp.image);
+    const name = props.myProp.name;
+    const uni = props.myProp.university; 
+ 
         return (
             <div>
             <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'></link>
@@ -13,57 +16,52 @@ const IndividualProfile = () => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <div className="w3-content w3-margin-top" style={{maxWidth:'1400px'}}>
             <div className="w3-row-padding">
-
                 <div className="w3-third">
                 
                 <div className="w3-white w3-text-grey w3-card-4">
                     <div className="w3-display-container">
-                    <img src={profilePicture} style={{width:'100%'}} alt="Avatar"/>
+                    <img src={props.myProp.image} style={{width:'100%'}} alt="Avatar"/>
                     <div className="w3-container w3-text-black">
-                        <h2>Jane Doe</h2>
+                        <h2>{name}</h2>
                     </div>
                     </div>
                     <div className="w3-container">
-                    <p><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-purple"></i>Designer</p>
+                    <p><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-purple"></i>{uni}</p>
                     <p><i className="fa fa-globe fa-fw w3-margin-right w3-large icon-purple"></i>London, UK</p>
                     <p><i className="fa fa-envelope fa-fw w3-margin-right w3-large icon-purple"></i>ex@mail.com</p>
                     <p><i className="fa fa-phone fa-fw w3-margin-right w3-large icon-purple"></i>1224435534</p>
                     <hr/>
 
                     <p className="w3-large"><b><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills</b></p>
-                    <p>Adobe Photoshop</p>
+                    <p>{props.myProp.skills[0]}</p>
                     <div className="w3-light-grey w3-round-xlarge w3-small">
                         <div className="w3-container w3-center w3-round-xlarge connect-blue" style={{width:'90%'}}>90%</div>
                     </div>
-                    <p>Photography</p>
+                    <p>{props.myProp.skills[1]}</p>
                     <div className="w3-light-grey w3-round-xlarge w3-small">
                         <div className="w3-container w3-center w3-round-xlarge connect-blue"  style={{width:'80%'}}>
                         <div className="w3-center w3-text-white">80%</div>
                         </div>
                     </div>
-                    <p>Illustrator</p>
+                    <p>{props.myProp.skills[2]}</p>
                     <div className="w3-light-grey w3-round-xlarge w3-small">
-                        <div className="w3-container w3-center w3-round-xlarge connect-blue"  style={{width:'75%'}}>75%</div>
+                        <div className="w3-container w3-center w3-round-xlarge connect-blue" style={{width:'90%'}}>70%</div>
                     </div>
-                    <p>Media</p>
-                    <div className="w3-light-grey w3-round-xlarge w3-small">
-                        <div className="w3-container w3-center w3-round-xlarge connect-blue"  style={{width:'50%'}}>50%</div>
-                    </div>
-                    <br/>
+
 
                     <p className="w3-large w3-text-theme"><b><i className="fa fa-globe fa-fw w3-margin-right icon-blue"></i>Interests</b></p>
-                    <p>Healthcare</p>
+                    <p>{props.myProp.interests[0]}</p>
                     <div className="w3-light-grey w3-round-xlarge">
                         <div className="w3-round-xlarge connect-purple" style={{height:'24px',width:'100%'}}></div>
                     </div>
-                    <p>Education</p>
+                    {/* <p>Education</p>
                     <div className="w3-light-grey w3-round-xlarge">
                         <div className="w3-round-xlarge connect-purple" style={{height:'24px',width:'55%'}}></div>
                     </div>
                     <p>Justice</p>
                     <div className="w3-light-grey w3-round-xlarge">
                         <div className="w3-round-xlarge connect-purple" style={{height:'24px',width:'25%'}}></div>
-                    </div>
+                    </div> */}
                     <br/>
                     </div>
                 </div><br/>
@@ -71,48 +69,45 @@ const IndividualProfile = () => {
                 </div>
 
                 <div className="w3-twothird">
-                
-                <div className="w3-container w3-card w3-white w3-margin-bottom">
-                    <h2 className="w3-text-grey w3-padding-16"><i className="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge icon-purple"></i>Experience</h2>
-                    <div className="w3-container">
-                    <h3><b>Front End Developer / w3schools.com</b></h3>
-                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>Jan 2015 - Current</h6>
-                    <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-                    <hr/>
-                    </div>
-                    <div className="w3-container">
-                    <h3><b>Web Developer / something.com</b></h3>
-                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>Mar 2012 - Dec 2014</h6>
-                    <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-                    <hr/>
-                    </div>
-                    <div className="w3-container">
-                    <h3><b>Graphic Designer / designsomething.com</b></h3>
-                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>Jun 2010 - Mar 2012</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br/>
-                    </div>
-                </div>
+                    
 
-                <div className="w3-container w3-card w3-white">
-                    <h2 className="w3-text-grey w3-padding-16"><i className="fa fa-certificate fa-fw w3-margin-right w3-xxlarge icon-purple"></i>Education</h2>
+                
+            <div className="w3-twothird">
+                <h2 className="w3-text-grey w3-padding-16"><i className="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge icon-purple"></i>Experience</h2>
+                {props.myProp.experiences.map((item, index) => {
+                console.log("testing " + item);
+                const [jobTitle, endDate, project] = item.split('/'); // split the item into three parts
+                return (
+                <div key={index} className="w3-container w3-card w3-white w3-margin-bottom">
                     <div className="w3-container">
-                    <h3><b>W3Schools.com</b></h3>
-                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>Forever</h6>
-                    <p>Web Development! All I need to know in one place</p>
+                    <h3><b>{jobTitle}</b></h3>
+                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>{endDate}</h6>
+                    <p>{project}</p>
                     <hr/>
-                    </div>
-                    <div className="w3-container">
-                    <h3><b>London Business School</b></h3>
-                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>2013 - 2015</h6>
-                    <p>Master Degree</p>
-                    <hr/>
-                    </div>
-                    <div className="w3-container">
-                    <h3><b>School of Coding</b></h3>
-                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>2010 - 2013</h6>
-                    <p>Bachelor Degree</p><br/>
                     </div>
                 </div>
+                );
+            })}
+            </div>
+
+
+             <div className="w3-twothird">
+                <h2 className="w3-text-grey w3-padding-16"><i className="fa fa-certificate fa-fw w3-margin-right w3-xxlarge icon-purple"></i>Educaton</h2>
+                {props.myProp.education.map((item, index) => {
+                console.log("testing " + item);
+                const [jobTitle, endDate, project] = item.split('/'); // split the item into three parts
+                return (
+                <div key={index} className="w3-container w3-card w3-white w3-margin-bottom">
+                    <div className="w3-container">
+                    <h3><b>{jobTitle}</b></h3>
+                    <h6 className="w3-text-black"><i className="fa fa-calendar fa-fw w3-margin-right icon-blue"></i>{endDate}</h6>
+                    <p>{project}</p>
+                    <hr/>
+                    </div>
+                </div>
+                );
+            })}
+            </div> 
 
                 </div>
                 

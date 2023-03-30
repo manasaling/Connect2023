@@ -34,9 +34,16 @@ function ArrayField({
   defaultFieldValue,
   lengthLimit,
   getBadgeText,
+  errorMessage,
 }) {
   const labelElement = <Text>{label}</Text>;
-  const { tokens } = useTheme();
+  const {
+    tokens: {
+      components: {
+        fieldmessages: { error: errorStyles },
+      },
+    },
+  } = useTheme();
   const [selectedBadgeIndex, setSelectedBadgeIndex] = React.useState();
   const [isEditing, setIsEditing] = React.useState();
   React.useEffect(() => {
@@ -139,6 +146,11 @@ function ArrayField({
           >
             Add item
           </Button>
+          {errorMessage && hasError && (
+            <Text color={errorStyles.color} fontSize={errorStyles.fontSize}>
+              {errorMessage}
+            </Text>
+          )}
         </>
       ) : (
         <Flex justifyContent="flex-end">
@@ -157,7 +169,6 @@ function ArrayField({
           <Button
             size="small"
             variation="link"
-            color={tokens.colors.brand.primary[80]}
             isDisabled={hasError}
             onClick={addItem}
           >
@@ -172,7 +183,7 @@ function ArrayField({
 export default function UsersUpdateForm(props) {
   const {
     id: idProp,
-    users,
+    users: usersModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -187,12 +198,20 @@ export default function UsersUpdateForm(props) {
     university: "",
     skills: [],
     interests: [],
+    image: "",
+    experiences: [],
+    education: [],
   };
   const [username, setUsername] = React.useState(initialValues.username);
   const [name, setName] = React.useState(initialValues.name);
   const [university, setUniversity] = React.useState(initialValues.university);
   const [skills, setSkills] = React.useState(initialValues.skills);
   const [interests, setInterests] = React.useState(initialValues.interests);
+  const [image, setImage] = React.useState(initialValues.image);
+  const [experiences, setExperiences] = React.useState(
+    initialValues.experiences
+  );
+  const [education, setEducation] = React.useState(initialValues.education);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = usersRecord
@@ -205,36 +224,52 @@ export default function UsersUpdateForm(props) {
     setCurrentSkillsValue("");
     setInterests(cleanValues.interests ?? []);
     setCurrentInterestsValue("");
+    setImage(cleanValues.image);
+    setExperiences(cleanValues.experiences ?? []);
+    setCurrentExperiencesValue("");
+    setEducation(cleanValues.education ?? []);
+    setCurrentEducationValue("");
     setErrors({});
   };
-  const [usersRecord, setUsersRecord] = React.useState(users);
+  const [usersRecord, setUsersRecord] = React.useState(usersModelProp);
   React.useEffect(() => {
     const queryData = async () => {
-      const record = idProp ? await DataStore.query(Users, idProp) : users;
+      const record = idProp
+        ? await DataStore.query(Users, idProp)
+        : usersModelProp;
       setUsersRecord(record);
     };
     queryData();
-  }, [idProp, users]);
+  }, [idProp, usersModelProp]);
   React.useEffect(resetStateValues, [usersRecord]);
   const [currentSkillsValue, setCurrentSkillsValue] = React.useState("");
   const skillsRef = React.createRef();
   const [currentInterestsValue, setCurrentInterestsValue] = React.useState("");
   const interestsRef = React.createRef();
+  const [currentExperiencesValue, setCurrentExperiencesValue] =
+    React.useState("");
+  const experiencesRef = React.createRef();
+  const [currentEducationValue, setCurrentEducationValue] = React.useState("");
+  const educationRef = React.createRef();
   const validations = {
     username: [{ type: "Required" }],
     name: [{ type: "Required" }],
     university: [{ type: "Required" }],
     skills: [],
     interests: [],
+    image: [],
+    experiences: [],
+    education: [],
   };
   const runValidationTasks = async (
     fieldName,
     currentValue,
     getDisplayValue
   ) => {
-    const value = getDisplayValue
-      ? getDisplayValue(currentValue)
-      : currentValue;
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -257,6 +292,9 @@ export default function UsersUpdateForm(props) {
           university,
           skills,
           interests,
+          image,
+          experiences,
+          education,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -317,6 +355,9 @@ export default function UsersUpdateForm(props) {
               university,
               skills,
               interests,
+              image,
+              experiences,
+              education,
             };
             const result = onChange(modelFields);
             value = result?.username ?? value;
@@ -345,6 +386,9 @@ export default function UsersUpdateForm(props) {
               university,
               skills,
               interests,
+              image,
+              experiences,
+              education,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -373,6 +417,9 @@ export default function UsersUpdateForm(props) {
               university: value,
               skills,
               interests,
+              image,
+              experiences,
+              education,
             };
             const result = onChange(modelFields);
             value = result?.university ?? value;
@@ -397,6 +444,9 @@ export default function UsersUpdateForm(props) {
               university,
               skills: values,
               interests,
+              image,
+              experiences,
+              education,
             };
             const result = onChange(modelFields);
             values = result?.skills ?? values;
@@ -407,7 +457,8 @@ export default function UsersUpdateForm(props) {
         currentFieldValue={currentSkillsValue}
         label={"Skills"}
         items={skills}
-        hasError={errors.skills?.hasError}
+        hasError={errors?.skills?.hasError}
+        errorMessage={errors?.skills?.errorMessage}
         setFieldValue={setCurrentSkillsValue}
         inputFieldRef={skillsRef}
         defaultFieldValue={""}
@@ -442,6 +493,9 @@ export default function UsersUpdateForm(props) {
               university,
               skills,
               interests: values,
+              image,
+              experiences,
+              education,
             };
             const result = onChange(modelFields);
             values = result?.interests ?? values;
@@ -452,7 +506,8 @@ export default function UsersUpdateForm(props) {
         currentFieldValue={currentInterestsValue}
         label={"Interests"}
         items={interests}
-        hasError={errors.interests?.hasError}
+        hasError={errors?.interests?.hasError}
+        errorMessage={errors?.interests?.errorMessage}
         setFieldValue={setCurrentInterestsValue}
         inputFieldRef={interestsRef}
         defaultFieldValue={""}
@@ -477,6 +532,137 @@ export default function UsersUpdateForm(props) {
           {...getOverrideProps(overrides, "interests")}
         ></TextField>
       </ArrayField>
+      <TextField
+        label="Image"
+        isRequired={false}
+        isReadOnly={false}
+        value={image}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              username,
+              name,
+              university,
+              skills,
+              interests,
+              image: value,
+              experiences,
+              education,
+            };
+            const result = onChange(modelFields);
+            value = result?.image ?? value;
+          }
+          if (errors.image?.hasError) {
+            runValidationTasks("image", value);
+          }
+          setImage(value);
+        }}
+        onBlur={() => runValidationTasks("image", image)}
+        errorMessage={errors.image?.errorMessage}
+        hasError={errors.image?.hasError}
+        {...getOverrideProps(overrides, "image")}
+      ></TextField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              username,
+              name,
+              university,
+              skills,
+              interests,
+              image,
+              experiences: values,
+              education,
+            };
+            const result = onChange(modelFields);
+            values = result?.experiences ?? values;
+          }
+          setExperiences(values);
+          setCurrentExperiencesValue("");
+        }}
+        currentFieldValue={currentExperiencesValue}
+        label={"Experiences"}
+        items={experiences}
+        hasError={errors?.experiences?.hasError}
+        errorMessage={errors?.experiences?.errorMessage}
+        setFieldValue={setCurrentExperiencesValue}
+        inputFieldRef={experiencesRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Experiences"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentExperiencesValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.experiences?.hasError) {
+              runValidationTasks("experiences", value);
+            }
+            setCurrentExperiencesValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("experiences", currentExperiencesValue)
+          }
+          errorMessage={errors.experiences?.errorMessage}
+          hasError={errors.experiences?.hasError}
+          ref={experiencesRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "experiences")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              username,
+              name,
+              university,
+              skills,
+              interests,
+              image,
+              experiences,
+              education: values,
+            };
+            const result = onChange(modelFields);
+            values = result?.education ?? values;
+          }
+          setEducation(values);
+          setCurrentEducationValue("");
+        }}
+        currentFieldValue={currentEducationValue}
+        label={"Education"}
+        items={education}
+        hasError={errors?.education?.hasError}
+        errorMessage={errors?.education?.errorMessage}
+        setFieldValue={setCurrentEducationValue}
+        inputFieldRef={educationRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Education"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentEducationValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.education?.hasError) {
+              runValidationTasks("education", value);
+            }
+            setCurrentEducationValue(value);
+          }}
+          onBlur={() => runValidationTasks("education", currentEducationValue)}
+          errorMessage={errors.education?.errorMessage}
+          hasError={errors.education?.hasError}
+          ref={educationRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "education")}
+        ></TextField>
+      </ArrayField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
@@ -488,7 +674,7 @@ export default function UsersUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || users)}
+          isDisabled={!(idProp || usersModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -500,7 +686,7 @@ export default function UsersUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || users) ||
+              !(idProp || usersModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

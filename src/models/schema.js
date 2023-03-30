@@ -47,6 +47,29 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
+                "image": {
+                    "name": "image",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "experiences": {
+                    "name": "experiences",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "education": {
+                    "name": "education",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -117,6 +140,6 @@ export const schema = {
             }
         }
     },
-    "codegenVersion": "3.3.5",
-    "version": "d67f6f3e6460ad23bc7b7d1f7faaaa5f"
+    "codegenVersion": "3.4.0",
+    "version": "883ef55d7332717e9396ff631c61bf08"
 };

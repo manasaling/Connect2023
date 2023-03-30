@@ -111,7 +111,8 @@ export default function ProfileCard(props) {
                     {/* <p><button class="profile-button"></button></p> */}
 
                     <div class="card-footer">
-                        <p class="count"><Link to='/profile'>More Info</Link></p>
+                      <Link to= "/moreInfo" state={{ from: myObject }} > Learn More </Link>
+                        {/* <p class="count"><Link to='/profile'>More Info</Link></p> */}
                     </div>
                 </div>
             </body>

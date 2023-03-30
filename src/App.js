@@ -16,6 +16,7 @@ import Questions from './Questions';
 import MatchedProfiles from './MatchedProfiles';
 import ProfileListSearch from './ProfileListSearch';
 import SideBar from './SideBar';
+import MoreInfo from './MoreInfo'
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route path="/profileList" element={<SideBar/>} />
           <Route path="/profileListTotal" element={<ProfileListSearch/>} />
           <Route path="/projectListTotal" element={<ProjectsList/>}/>
+          <Route path="/moreInfo" element={<MoreInfo/>}/>
+          
           
           
           

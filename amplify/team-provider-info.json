@@ -12,8 +12,11 @@
       "AmplifyAppId": "d1vxw07pmqir3s"
     },
     "categories": {
-      "api": {
+      "auth": {
         "connect": {}
+      },
+      "storage": {
+        "s3connectstoragec5f2ff39": {}
       }
     }
   }

@@ -25,10 +25,18 @@ async function fetchUser() {
     const userData1 = {name: "Textbook Find", interests: "Education Technology", skills: ["Figma", "Program Manager"], logo: "textbookLogo.jpg", description: "Helping students find textbooks more easily at a lower cost."};
     const userData2 = {name: "Friends Together", interests: "Social", skills: ["App Development"], logo: "friendsLogo.jpg", description: "Finding your best friends through an IOS app"};
     const userData3 = {name: "Matching Clothes", interests: "Fashion", skills: ["Machine Learning", "Figma"], logo: "fashionCompany.png", description: "A way to tell you what to wear with what you have!"};
+    const userData4 = {name: "Connected Conversations", interests: "Productivity", skills: ["Java", "Node JS"], logo: "connectedconvo.jpg", description: "Connecting people through conversations."};
+    const userData5 = {name: "Krispy Waffles", interests: "Social", skills: ["App Development"], logo: "krispy.jpg", description: "Finding your best friends through food"};
+    const userData6 = {name: "Datasections", interests: "Data Science", skills: ["Machine Learning", "Figma"], logo: "data.jpg", description: "Bringing data to users"};
+
+
 
     userMap.set(1, userData1);
     userMap.set(2, userData2);
     userMap.set(3, userData3);
+    userMap.set(4, userData4);
+    userMap.set(5, userData5);
+    userMap.set(6, userData6);
 
   }
    catch (err) {
@@ -213,9 +221,9 @@ export default function ProfileListSearch() {
       <div className='topBar'>
         <div className='header'>Connect</div>
           <div class="topnav">
-                <Link to='/profileList'>Individual</Link>
+                <Link to='/profileListTotal'>Individual</Link>
                 <Link to='/projectsList'>Projects</Link>
-                <Link to ="/matched">Matched</Link>
+                
           </div>      
         </div>
       
@@ -243,7 +251,8 @@ export default function ProfileListSearch() {
 
           <p id="letsGetStarted">Let's Get Started!</p>  
           <p id="ConnectText"><i><b>Connect</b></i> With Your Perfect Team Today</p> 
-          <button id="defaultButton" onClick={handleFilterButtonClick}>Display Participants</button>
+          <br></br>
+          <button id="defaultButton" onClick={handleFilterButtonClick} >Display Teams </button>
 
           </div>
           

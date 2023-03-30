@@ -39,6 +39,9 @@ type EagerUsers = {
   readonly university: string;
   readonly skills?: (string | null)[] | null;
   readonly interests?: (string | null)[] | null;
+  readonly image?: string | null;
+  readonly experiences?: (string | null)[] | null;
+  readonly education?: (string | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -54,6 +57,9 @@ type LazyUsers = {
   readonly university: string;
   readonly skills?: (string | null)[] | null;
   readonly interests?: (string | null)[] | null;
+  readonly image?: string | null;
+  readonly experiences?: (string | null)[] | null;
+  readonly education?: (string | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
