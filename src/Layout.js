@@ -6,15 +6,11 @@ const Layout = ({children}) => {
     return (
         <>
       <div class="menu">
-            <Link to='/profile'>PROFILE</Link>
+            <Link to='/myProfile'>PROFILE</Link>
             <a href>|</a>
-            <Link to='/team'>TEAM</Link>
+            <Link to='/profileListTotal'>FIND</Link>
             <a href>|</a>
-            <Link to='/individualProfile'>FIND</Link>
-            <a href>|</a>
-            <Link to='/signup'>INTERESTS</Link>
-            <a href>|</a>
-            <Link to='/login'>EVENTS</Link>
+            <Link to='/eventcode'>EVENTS</Link>
       </div>
             
             <main>

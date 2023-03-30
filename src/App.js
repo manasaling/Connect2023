@@ -17,6 +17,7 @@ import MatchedProfiles from './MatchedProfiles';
 import ProfileListSearch from './ProfileListSearch';
 import SideBar from './SideBar';
 import MoreInfo from './MoreInfo'
+import MyProfile from './myProfile'
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Login/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/eventcode" element={<EventCode/>} />
@@ -39,6 +40,7 @@ function App() {
           <Route path="/profileListTotal" element={<ProfileListSearch/>} />
           <Route path="/projectListTotal" element={<ProjectsList/>}/>
           <Route path="/moreInfo" element={<MoreInfo/>}/>
+          <Route path="/myProfile" element={<MyProfile/>}/>
           
           
           

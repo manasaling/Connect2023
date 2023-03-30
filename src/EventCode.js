@@ -3,6 +3,7 @@ import UserHome from "./UserHome";
 import './EventCode.css'
 import ProfileList from "./ProfileList";
 import ProfileListSearch from "./ProfileListSearch";
+import Layout from './Layout.js'
 const EventCode = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -80,7 +81,9 @@ const EventCode = () => {
     
 
     return ( 
+      
         <div className="content">
+          <Layout></Layout>
            {isSubmitted ? <ProfileListSearch/>  : renderForm}
         </div>
      );
