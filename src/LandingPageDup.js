@@ -181,8 +181,8 @@ const LandingPage = () => {
 					<div className="features-inner section-inner has-bottom-divider">
 						<div className="features-header text-center">
 							<div className="container-sm">
-								<h2 className="section-title mt-0">The Product</h2>
-	                            <p className="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+								<h2 className="section-title mt-0">What is Connect?</h2>
+	                            <p className="section-paragraph">Your Perfect Team Formation Platform To Improve Participation and the Success Rate of Your Competition</p>
 								<div className="features-image">
 									<img className="features-illustration asset-dark" src={FeatureIllustrationDark} alt="Feature illustration"></img>
 									<img className="features-box asset-dark" src={FeatureBoxDark} alt="Feature box"></img>
@@ -239,10 +239,10 @@ const LandingPage = () => {
                 <div className="container-sm">
                     <div className="cta-inner section-inner">
                         <div className="cta-header text-center">
-                            <h2 className="section-title mt-0">Get it and Switch</h2>
-                            <p className="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                            <h2 className="section-title mt-0">Let's Discuss How You Can Use Connect</h2>
+                            <p className="section-paragraph">Don't miss out on the chance for your competition to be one of the best of the season. We are here to make you more succesful.</p>
 							<div className="cta-cta">
-								<a className="button button-primary" href="#">Buy it now</a>
+								<a className="button button-primary" href="#">Contact Us</a>
 							</div>
 					    </div>
                     </div>

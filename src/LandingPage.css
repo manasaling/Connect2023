@@ -1634,7 +1634,8 @@ label {
 
 .feature-title {
     position: relative;
-    margin-bottom: 26px
+    margin-bottom: 26px;
+    color: black;
 }
 
 .feature-title::after {
