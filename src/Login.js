@@ -4,6 +4,8 @@ import IndividualProfile from "./IndividualProfile";
 import './Login.css'
 import PersonalProfile from "./ProfileCard";
 import { Navigate } from "react-router-dom";
+import ConnectLogo from './images/connectlogo2.png'
+import './App.css'
 
 
 const Login = () => {
@@ -26,6 +28,10 @@ const Login = () => {
     {
       username: "user2",
       password: "pass2"
+    }, 
+    {
+      username: "sarahpike",
+      password: "pms123!"
     }
   ];
 
@@ -53,7 +59,11 @@ const Login = () => {
     }
 
     const renderForm = (
-      <><div class="login-wrap">
+      <div>
+        <img src={ConnectLogo} alt="Connect Logo" id="connectLogo"></img>
+
+
+        <><div class="login-wrap">
         <div class="login-html">
           <div class="welcome">
             <label class="connect">Welcome to Connect!</label>
@@ -93,12 +103,16 @@ const Login = () => {
           </form>
         </div>
       </div></>
+      </div>
+      
+      
       );
 
     return ( 
         <div className="login">
-           <div className="title">connect</div>
-
+          
+           {/* <div className="title">connect</div> */}
+           {/* <img src={ConnectLogo} alt="Connect Logo" id="connectLogo"></img> */}
            {isSubmitted ? <EventCode/> : renderForm }
             
 

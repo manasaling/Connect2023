@@ -4,6 +4,8 @@ import './EventCode.css'
 import ProfileList from "./ProfileList";
 import ProfileListSearch from "./ProfileListSearch";
 import Layout from './Layout.js'
+import ConnectLogo from './images/connectlogo2.png'
+import './App.css'
 const EventCode = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,6 +22,9 @@ const EventCode = () => {
     },
     {
       eventcode: "event2"
+    },
+    {
+      eventcode: "Dubhacks"
     }
   ];
 
@@ -44,7 +49,11 @@ const EventCode = () => {
 
 
     const renderForm = (
-      <><div class="login-wrap">
+      <div>
+         <img src={ConnectLogo} alt="Connect Logo" id="connectLogo"></img>
+
+
+<><div class="login-wrap">
       <div class="login-html">
         <div class="welcome">
           <label class="connect">Welcome to Connect!</label>
@@ -76,6 +85,9 @@ const EventCode = () => {
         </form>
       </div>
       </div></>
+
+      </div>
+     
     );
     
     
@@ -83,7 +95,8 @@ const EventCode = () => {
     return ( 
       
         <div className="content">
-          <Layout></Layout>
+          
+          {/* <Layout></Layout> */}
            {isSubmitted ? <ProfileListSearch/>  : renderForm}
         </div>
      );

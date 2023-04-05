@@ -86,9 +86,10 @@ export default function ProfileCard(props) {
     </div> */}
                 <body>
                 {/* <body class="cardInfo"> */}
+                <div className="overarching_card">
                 <div className="cardi">
                     <div class="card-header">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Profile Image" class="profile-img"></img>
+                        <img src={imageSrc} alt="Profile Image" class="profile-img"></img>
                     </div>
                     <div class="card-body">
                       <p class="name">{myObject.name}</p>
@@ -110,12 +111,17 @@ export default function ProfileCard(props) {
 
                     {/* <p><button class="profile-button"></button></p> */}
 
+                    
+                </div>
+
+                <div>
                     <div class="card-footer">
                       <Link to= "/moreInfo" state={{ from: myObject }} > Learn More </Link>
                         {/* <p class="count"><Link to='/profile'>More Info</Link></p> */}
                     </div>
                 </div>
-            </body>
+                </div>
+            </body> 
   
     </div>
   );

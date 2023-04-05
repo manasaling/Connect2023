@@ -8,45 +8,37 @@ import {getUsers, listUsers} from './graphql/queries';
 import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
 import './cardFilter.css'
-import './Login.css'
 
 let filtersNone = true;
 
 async function fetchUser() {
-  
 
   const userMap = new Map();
   let curr_user = '';
   try {
 
-    const allUsers = await API.graphql ({
-      query : listUsers
-    });
-   
-    allUsers.data.listUsers.items.forEach(user => {
-     
-      if (user._deleted != true) {
-        const userData = {
-        name: user.name,
-        university: user.university,
-        skills: user.skills || [],
-        interests: user.interests || [],
-        image: user.image,
-        experiences: user.experiences || [],
-        education: user.education || []
+      /*
+    hard coding the projects data:
+    needs project name, project category, 
+  */
 
-      };
+    const userData1 = {name: "Jay Sharma", university: "Boston University", skills: ["Java", "Python", "UI/UX"], interests: ["Skiing", "Waterpolo"], image: "textbookLogo.jpg"};
+    const userData2 = {name: "Pranati Dani", university: "University of Washington", skills: ["Java", "React", "UI/UX"], interests: ["Dance"], image: "friendsLogo.jpg"};
+    const userData3 = {name: "Sahana Sasikumar", university: "University of California", skills: ["Design", "Figma", "UI/UX"], interests: ["Education"], image: "fashionCompany.png"};
+    const userData4 = {name: "Saloni Ramya", university: "Seattle University", skills: ["React", "Python", "Backend"], interests: ["Dance"], image: "connectedconvo.jpg"};
 
-      userMap.set(user.id, userData);
 
-    }
-    
-    
-    });
+
+
+    userMap.set(1, userData1);
+    userMap.set(2, userData2);
+    userMap.set(3, userData3);
+    userMap.set(4, userData4);
+
 
   }
    catch (err) {
-      console.log("error fetching user: ", err);
+      console.log("error fetching project: ", err);
   }
 
   return userMap;
@@ -73,7 +65,7 @@ export default function ProfileListSearch() {
 
   let selectedNameFilters = [];
   let selectedSkillsFilters = [];  
-  let selectedInterestsFilters = [];
+  let selectedInterestsFilters = []; // this is category
 
   
   const [filteredItems, setFilteredItems] = useState(all_user);
@@ -87,12 +79,10 @@ export default function ProfileListSearch() {
   };
 
   const addNameFilter = (event) => {
-
     if (event.key === 'Enter') {
       if (filtersNone == true) {
         document.getElementById('filteredItems').innerHTML = "selected filters:";
       }
-      filtersNone = false;
       console.log("in filter names");
       const nameFilterInput = document.getElementById('nameFilterInput');
       const filteredItemsDiv = document.getElementById('filteredItems');
@@ -117,7 +107,6 @@ export default function ProfileListSearch() {
       if (filtersNone == true) {
         document.getElementById('filteredItems').innerHTML = "selected filters:";
       }
-      filtersNone = false;
       console.log("in filter names");
       const skillsFilterInput = document.getElementById('skillsFilterInput');
       const filteredItemsDiv = document.getElementById('filteredItems');
@@ -191,18 +180,17 @@ export default function ProfileListSearch() {
             }
             
           }
-            // interests
-            if (userData.interests[0] != null && !alreadyAdded) {
-              for (let i = 0; i < (userData.interests).length; i++) {
-                  if (selectedInterestsFilters.includes((userData.interests)[i].toLowerCase())) {
-                    tempItems.push(userData);
-                    i = userData.interests.length;
-                    alreadyAdded = true;
-                  }
-    
+          if (userData.interests[0] != null && !alreadyAdded) {
+            for (let i = 0; i < (userData.interests).length; i++) {
+                if (selectedInterestsFilters.includes((userData.interests)[i].toLowerCase())) {
+                  tempItems.push(userData);
+                  i = userData.interests.length;
+                  alreadyAdded = true;
                 }
-                
+  
               }
+              
+            }
                         
         })
 
@@ -222,7 +210,6 @@ export default function ProfileListSearch() {
   }
   };
 
-
   return (
 
     
@@ -241,13 +228,12 @@ export default function ProfileListSearch() {
         </div>
       
       <div className="backgroundCards">
-     
+  
         <div className='filterBar'>
-      
-            <label className="filterTitle">FILTERS</label>
+        <label className="filterTitle">FILTERS</label>
             <br></br>
-              <label className="filterName">Name</label>
-              <input type="text" id="nameFilterInput" placeholder="Enter in Name Filters.." onKeyUp = {addNameFilter}/>
+              <label className="filterName"> Name</label>
+              <input type="text" id="nameFilterInput" placeholder="Enter in Participant Name.." onKeyUp = {addNameFilter}/>
               <br></br>
               <label className="filterName">Skills</label>
               <input type="text" id="skillsFilterInput" placeholder="Enter in Skills Filters.." onKeyUp={addSkillsFilter} />
@@ -259,17 +245,14 @@ export default function ProfileListSearch() {
               <br></br>
               <div className= "filteredItems" id="filteredItems">Selected Filters: </div>
           </div>
-            
         <div className="cards-wrap">
-          <div className="items-container">   
+          <div className="items-container">  
           <div className="defaultText" id="defaultText">
 
-          <p id="letsGetStarted">Let's Get Started!</p>  
-          <p id="ConnectText"><i><b>Connect</b></i> With Your Perfect Team Today</p> 
-          {/* <button id="defaultButton" onClick={handleFilterButtonClick}>Display Participants</button> */}
+          <p id="letsGetStarted">Who is your perfect match?</p>  
+          <p id="ConnectText"><i><b>Connect</b></i> With the List we Carefully Curated for YOU</p> 
           <br></br>
-          <button id="defaultButton" onClick={handleFilterButtonClick} >Display Participants</button>
-
+          <button id="defaultButton" onClick={handleFilterButtonClick} >Display Connect's Matches </button>
 
           </div>
           
@@ -279,7 +262,7 @@ export default function ProfileListSearch() {
             })}
           </div>
         </div>
-        
+
       </div>
       
       
@@ -290,9 +273,6 @@ export default function ProfileListSearch() {
 
       
       </div>
-
     </div>
-
-
   );
 }

@@ -31,9 +31,9 @@ export default function ProjectCard(props) {
         <div class="card-body">
           <p class="name">{myObject.name}</p>
             <div class = "profile-credentials">
-            <p class = "job margin-right icon-blue">{myObject.description}</p>
-            <p class="job"><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-blue"></i>{myObject.interests}</p>
-            <p class="job"><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills Needed: {(myObject.skills).join(', ')}</p>
+            <p class = "job margin-right icon-blue description"><i>{myObject.description}</i></p>
+            <p class="job"><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-blue"></i><b>Category:</b> {myObject.interests}</p>
+            <p class="job"><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i><b>Skills Needed:</b> {(myObject.skills).join(', ')}</p>
              
             </div>
           {/* <a href="#" class="mail">{myObject.university}</a> */}

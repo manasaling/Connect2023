@@ -22,12 +22,12 @@ async function fetchUser() {
     needs project name, project category, 
   */
 
-    const userData1 = {name: "Textbook Find", interests: "Education Technology", skills: ["Figma", "Program Manager"], logo: "textbookLogo.jpg", description: "Helping students find textbooks more easily at a lower cost."};
-    const userData2 = {name: "Friends Together", interests: "Social", skills: ["App Development"], logo: "friendsLogo.jpg", description: "Finding your best friends through an IOS app"};
-    const userData3 = {name: "Matching Clothes", interests: "Fashion", skills: ["Machine Learning", "Figma"], logo: "fashionCompany.png", description: "A way to tell you what to wear with what you have!"};
-    const userData4 = {name: "Connected Conversations", interests: "Productivity", skills: ["Java", "Node JS"], logo: "connectedconvo.jpg", description: "Connecting people through conversations."};
-    const userData5 = {name: "Krispy Waffles", interests: "Social", skills: ["App Development"], logo: "krispy.jpg", description: "Finding your best friends through food"};
-    const userData6 = {name: "Datasections", interests: "Data Science", skills: ["Machine Learning", "Figma"], logo: "data.jpg", description: "Bringing data to users"};
+    const userData1 = {name: "TextFind", interests: "Education Technology", skills: ["Figma", "Program Manager"], logo: "textbookLogo.jpg", description: "Helping students find textbooks more easily at a lower cost."};
+    const userData5 = {name: "Circle", interests: "Social", skills: ["App Development"], logo: "circleLogo.jpg", description: "Your Job Circle - Today"};
+    const userData3 = {name: "Your Closet", interests: "Fashion", skills: ["Machine Learning", "Figma"], logo: "closetLogo.jpg", description: "AI-ing your closet to the perfect outfits"};
+    const userData4 = {name: "Prime", interests: "Productivity", skills: ["Java", "Node JS"], logo: "connectedconvo.jpg", description: "Connecting people through conversations."};
+    const userData2 = {name: "Foodies", interests: "Social", skills: ["App Development"], logo: "krispy.jpg", description: "Finding your friends through food"};
+    const userData6 = {name: "Data Crazy", interests: "Data Science", skills: ["Machine Learning", "Figma"], logo: "data.jpg", description: "Merging data and analyzing it for retail"};
 
 
 
@@ -219,10 +219,11 @@ export default function ProfileListSearch() {
     <div>
       <Layout></Layout>
       <div className='topBar'>
-        <div className='header'>Connect</div>
+        {/* <div className='header'>Connect</div> */}
           <div class="topnav">
                 <Link to='/profileListTotal'>Individual</Link>
                 <Link to='/projectsList'>Projects</Link>
+                <Link to='/matchedList'>Matched</Link>
                 
           </div>      
         </div>

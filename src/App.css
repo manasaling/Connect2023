@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+#connectLogo {
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 100px;
+  width: auto;
 }
