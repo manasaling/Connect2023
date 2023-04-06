@@ -28,6 +28,7 @@ import FrontPageImage from './dist/images/frontPageImage2.png'
 import ConnectLogo from './images/connectlogo2.png'
 import Typed from "typed.js";
 import { useRef } from "react";
+import { Link } from 'react-router-dom'
 
 
 
@@ -52,7 +53,10 @@ const LandingPage = () => {
         smartBackspace: true,
         loop: true,
         showCursor: true,
-        cursorChar: ""
+        cursorChar: "",
+        contentType: "html",
+       
+      
         });
 
         // Destropying
@@ -133,6 +137,11 @@ const LandingPage = () => {
                             <a href="#">
 								<img className="header-logo-image asset-light" src={ConnectLogo} alt="Logo"></img>
 								<img className="header-logo-image asset-dark" src={LogoDark} alt="Logo"></img>
+                                {/* <button className="goToTool">Access Connect</button>
+                                <Link to= "/" className="goToTool"> Access Connect </Link> */}
+                                <a href="/">
+                                <button  className="goToTool">Access Connect</button>
+                                </a>
                             </a>
                         </h1>
                     </div>
@@ -145,8 +154,9 @@ const LandingPage = () => {
                 <div className="container">
                     <div className="hero-inner">
 						<div className="hero-copy">
-	                        <h1 className="hero-title mt-0">Let's <b>Connect</b></h1>
-	                        <p className="hero-paragraph">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
+	                        <h1 className="hero-title mt-0">Meet <b>Connect</b></h1>
+	                        <p className="hero-paragraph1">Let's Turn Your Passion Into Reality. Together </p>
+                            <p className="hero-paragraph">Meet the perfect team matching platform for any competition. </p>
 	                        <span className="typingScript" ref={el}></span>
                             <div className="hero-cta">
                                 
@@ -201,8 +211,8 @@ const LandingPage = () => {
 										<img className="asset-dark" src={LogoDarkFeatureOne} alt="Feature 01"></img>
                                     </div>
 									<div className="feature-content">
-                                    	<h3 className="feature-title mt-0">Discover</h3>
-                                    	<p className="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dui.</p>
+                                    	<h3 className="feature-title mt-0">Increase Success</h3>
+                                    	<p className="text-sm mb-0">More Compatible Teams = More Fun = More Participants = More Success</p>
 									</div>
 								</div>
                             </div>
@@ -211,10 +221,11 @@ const LandingPage = () => {
                                     <div className="feature-icon">
 										<img className="asset-light" src={LogoDarkFeatureTwo} alt="Feature 02"></img>
 										<img className="asset-dark" src={LogoDarkFeatureTwo} alt="Feature 02"></img>
+                                    
                                     </div>
 									<div className="feature-content">
-                                    	<h3 className="feature-title mt-0">Discover</h3>
-                                    	<p className="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dui.</p>
+                                    	<h3 className="feature-title mt-0">Increase Retention</h3>
+                                    	<p className="text-sm mb-0">Increase Participant Retention By Helping Them Find People and Projects They Love</p>
 									</div>
 								</div>
                             </div>
@@ -225,8 +236,8 @@ const LandingPage = () => {
 										<img className="asset-dark" src={LogoDarkFeature} alt="Feature 03"></img>
                                     </div>
 									<div className="feature-content">
-                                    	<h3 className="feature-title mt-0">Discover</h3>
-                                    	<p className="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua dui.</p>
+                                    	<h3 className="feature-title mt-0">Increase Impact</h3>
+                                    	<p className="text-sm mb-0">By having more Compatible teams with solid interests, you can increase the impact of your competition.</p>
 									</div>
 								</div>
                             </div>
@@ -242,7 +253,7 @@ const LandingPage = () => {
                             <h2 className="section-title mt-0">Let's Discuss How You Can Use Connect</h2>
                             <p className="section-paragraph">Don't miss out on the chance for your competition to be one of the best of the season. We are here to make you more succesful.</p>
 							<div className="cta-cta">
-								<a className="button button-primary" href="#">Contact Us</a>
+								<a className="button button-primary" href="mailto:pdani1@uw.edu">Contact Us</a>
 							</div>
 					    </div>
                     </div>
@@ -250,59 +261,7 @@ const LandingPage = () => {
             </div>
         </div>
 
-        <div className="site-footer has-top-divider">
-            <div className="container">
-                <div className="site-footer-inner">
-                    <div className="brand footer-brand">
-                        <a href="#">
-							<img className="asset-light" src={LogoLight} alt="Logo"></img>
-							<img className="asset-dark" src={LogoDark} alt="Logo"></img>
-                        </a>
-                    </div>
-                    <ul className="footer-links list-reset">
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-                        <li>
-                            <a href="#">FAQ's</a>
-                        </li>
-                        <li>
-                            <a href="#">Support</a>
-                        </li>
-                    </ul>
-                    <ul className="footer-social-links list-reset">
-                        <li>
-                            <a href="#">
-                                <span className="screen-reader-text">Facebook</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#FFF"/>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span className="screen-reader-text">Twitter</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#FFF"/>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span className="screen-reader-text">Google</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#FFF"/>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                    <div className="footer-copyright">&copy; 2018 Switch, all rights reserved</div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     <script src="dist/js/main.min.js"></script>
