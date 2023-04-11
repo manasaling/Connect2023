@@ -86,10 +86,13 @@ export default function ProfileCard(props) {
     </div> */}
                 <body>
                 {/* <body class="cardInfo"> */}
-                <div className="overarching_card">
+                {/*<div className="overarching_card">*/}
                 <div className="cardi">
                     <div class="card-header">
+                      <Link to= "/moreInfo" state={{ from: myObject }} >
                         <img src={imageSrc} alt="Profile Image" class="profile-img"></img>
+                      </Link>
+                        
                     </div>
                     <div class="card-body">
                       <p class="name">{myObject.name}</p>
@@ -115,12 +118,12 @@ export default function ProfileCard(props) {
                 </div>
 
                 <div>
-                    <div class="card-footer">
-                      <Link to= "/moreInfo" state={{ from: myObject }} > Learn More </Link>
+                    {/* <div class="card-footer"> */}
+                      {/*<Link to= "/moreInfo" state={{ from: myObject }} > Learn More </Link>
                         {/* <p class="count"><Link to='/profile'>More Info</Link></p> */}
-                    </div>
+                    {/* </div> */}
                 </div>
-                </div>
+              {/*  </div> */}
             </body> 
   
     </div>
