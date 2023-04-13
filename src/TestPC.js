@@ -16,18 +16,17 @@ export default function TestPC(props) {
   console.log("image is found" + myObject.image);
   return (
 
-
-    
   <div className='card'>
-   
                 <body>
                 {/* <body class="cardInfo"> */}
                 {/*<div className="overarching_card">*/}
                 <div className="cardi">
                     <div class="card-header">
                       <Link to= "/moreInfo" state={{ from: myObject }} >
-                        <img src={`./images/${myObject.image}`} alt="Profile Image" class="profile-img"></img>
+                        <img src={`./images2/${myObject.image}`}  class="profile-img"></img>
+                        {console.log("test image again" + `./images/${myObject.image}`)}
                       </Link>
+                     
                         
                     </div>
                     <div class="card-body">
@@ -36,6 +35,7 @@ export default function TestPC(props) {
                           <p class="job"><i className="fa fa-briefcase fa-fw w3-margin-right icon-blue"></i>{myObject.university}</p>
                           <p class="job"><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills: {(myObject.skills).join(', ')}</p>
                           <p class="job"><i className="fa fa-globe fa-fw w3-margin-right icon-blue"></i>Interests: {(myObject.interests).join(', ')}</p>
+                                                
                         </div>
                       {/* <a href="#" class="mail">{myObject.university}</a> */}
                        

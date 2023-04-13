@@ -24,9 +24,9 @@ async function fetchUser() {
   */
 
     const userData1 = {name: "Jay Sharma", university: "Boston University", skills: ["Java", "Python", "UI/UX"], interests: ["Skiing", "Waterpolo"], image: "JaySharma.JPG"};
-    const userData2 = {name: "Pranati Dani", university: "University of Washington", skills: ["Java", "React", "UI/UX"], interests: ["Dance"], image: "friendsLogo.jpg"};
-    const userData3 = {name: "Sahana Sasikumar", university: "University of California", skills: ["Design", "Figma", "UI/UX"], interests: ["Education"], image: "fashionCompany.png"};
-    const userData4 = {name: "Saloni Ramya", university: "Seattle University", skills: ["React", "Python", "Backend"], interests: ["Dance"], image: "connectedconvo.jpg"};
+    const userData2 = {name: "Pranati Dani", university: "University of Washington", skills: ["Java", "React", "UI/UX"], interests: ["Dance"], image: "Pranati.jpg"};
+    const userData3 = {name: "Sahana Sasikumar", university: "University of California", skills: ["Design", "Figma", "UI/UX"], interests: ["Education"], image: "Sahana.jpg"};
+    const userData4 = {name: "Saloni Ramya", university: "Seattle University", skills: ["React", "Python", "Backend"], interests: ["Dance"], image: "Saloni.jpg"};
 
 
 
