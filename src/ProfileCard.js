@@ -90,7 +90,7 @@ export default function ProfileCard(props) {
                 <div className="cardi">
                     <div class="card-header">
                       <Link to= "/moreInfo" state={{ from: myObject }} >
-                        <img src={imageSrc} alt="Profile Image" class="profile-img"></img>
+                        <img src={imageSrc} alt="" class="profile-img"></img>
                       </Link>
                         
                     </div>
