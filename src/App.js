@@ -20,8 +20,8 @@ import MoreInfo from './MoreInfo'
 import MyProfile from './myProfile'
 import MatchedList from './matchedList'
 import ConnectLogo from './images/connectlogo2.png'
-import LandingPage from './LandingPage.js'
-import LandingPage2 from './LandingPageDup.js'
+// import LandingPage from './LandingPage.js'
+// import LandingPage2 from './LandingPageDup.js'
 
 
 
@@ -48,8 +48,8 @@ function App() {
           <Route path="/moreInfo" element={<MoreInfo/>}/>
           <Route path="/myProfile" element={<MyProfile/>}/>
           <Route path="/matchedList" element={<MatchedList/>}/>
-          <Route path="/landingPage" element={<LandingPage/>}/>
-          <Route path ="/landingPageDup" element={<LandingPage2/>}/>
+          {/* <Route path="/landingPage" element={<LandingPage/>}/>
+          <Route path ="/landingPageDup" element={<LandingPage2/>}/> */}
 
           
           
