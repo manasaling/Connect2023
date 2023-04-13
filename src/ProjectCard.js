@@ -31,13 +31,18 @@ export default function ProjectCard(props) {
         <div class="card-body">
           <p class="name">{myObject.name}</p>
             <div class = "profile-credentials">
-            <p class = "job margin-right icon-blue">{myObject.description}</p>
-            <p class="job"><i className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-blue"></i>{myObject.interests}</p>
-            <p class="job"><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills Needed: {(myObject.skills).join(', ')}</p>
+            <p class="project"><p className="fa fa-briefcase fa-fw w3-margin-right w3-large icon-blue"></p><b>{myObject.interests}</b></p>
+            <p class="category"><p className ="job margin-right icon-blue"></p>{myObject.description}</p>
+            <p class="skillsNeeded"><p className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></p><b>Skills Needed: </b></p>
+            <p class="skillsNeeded"><p className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></p>{(myObject.skills).join(', ')}</p>
              
             </div>
           {/* <a href="#" class="mail">{myObject.university}</a> */}
+        
            
+        </div>
+        <div class="footer">
+          <p class="count"><a href="mailto:example@example.com">Contact</a></p>
         </div>
 
         {/* <div class="social-links">
@@ -49,11 +54,12 @@ export default function ProjectCard(props) {
 
         {/* <p><button class="profile-button"></button></p> */}
 
-        <div class="card-footer">
+        {/* <div class="card-footer">
             <p class="count"><a href="mailto:example@example.com">Contact</a></p>
-        </div>
+        </div> */}
 
         {/* <p><button class="profile-button"><a href="mailto:example@example.com">Contact</a></button></p> */}
+        
     </div>
 </body>
 </div>

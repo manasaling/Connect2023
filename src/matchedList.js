@@ -10,6 +10,8 @@ import SideBar from './SideBar';
 import './cardFilter.css'
 import TestPC from './TestPC';
 
+
+
 let filtersNone = true;
 
 async function fetchUser() {
@@ -23,10 +25,11 @@ async function fetchUser() {
     needs project name, project category, 
   */
 
-    const userData1 = {name: "Jay Sharma", university: "Boston University", skills: ["Java", "Python", "UI/UX"], interests: ["Skiing", "Waterpolo"], image: "JaySharma.JPG"};
-    const userData2 = {name: "Pranati Dani", university: "University of Washington", skills: ["Java", "React", "UI/UX"], interests: ["Dance"], image: "friendsLogo.jpg"};
-    const userData3 = {name: "Sahana Sasikumar", university: "University of California", skills: ["Design", "Figma", "UI/UX"], interests: ["Education"], image: "fashionCompany.png"};
-    const userData4 = {name: "Saloni Ramya", university: "Seattle University", skills: ["React", "Python", "Backend"], interests: ["Dance"], image: "connectedconvo.jpg"};
+    
+    const userData1 = {name: "Jay Sharma", university: "Boston University", skills: ["Java", "Python", "User Interface and Design", "Design"], interests: ["Skiing", "Waterpolo", "Animation"], image: "JaySharma.JPG"};
+    const userData2 = {name: "Pranati Dani", university: "University of Washington", skills: ["Java", "React", "UI/UX", "API Development"], interests: ["Education Tech, Human-Computer Interface"], image: "Pranati.jpg"};
+    const userData3 = {name: "Sahana Sasi", university: "University of Washington", skills: ["Design", "Video Game Development, API Development"], interests: ["Animation", "Dance"], image: "Sahana.jpg"};
+    const userData4 = {name: "Saloni Ramya", university: "Seattle University", skills: ["React", "Python", "Flask", "Video Game Development"], interests: ["Dance", "Education Tech", "Animation"], image: "Saloni.jpg"};
 
 
 
@@ -256,7 +259,7 @@ export default function ProfileListSearch() {
           <button id="defaultButton" onClick={handleFilterButtonClick} >Display Connect's Matches </button>
 
           </div>
-          
+
 
             {filteredItems.map((id, item) => {
               return <TestPC myObject={id}/>;

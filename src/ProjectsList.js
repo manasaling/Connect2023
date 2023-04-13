@@ -23,11 +23,11 @@ async function fetchUser() {
   */
 
     const userData1 = {name: "TextFind", interests: "Education Technology", skills: ["Figma", "Program Manager"], logo: "textbookLogo.jpg", description: "Helping students find textbooks more easily at a lower cost."};
-    const userData5 = {name: "Circle", interests: "Social", skills: ["App Development"], logo: "circleLogo.jpg", description: "Your Job Circle - Today"};
-    const userData3 = {name: "Your Closet", interests: "Fashion", skills: ["Machine Learning", "Figma"], logo: "closetLogo.jpg", description: "AI-ing your closet to the perfect outfits"};
+    const userData5 = {name: "Circle", interests: "Social", skills: ["App Development"], logo: "circleLogo.jpg", description: "Networking made easy. Find your job circle today."};
+    const userData3 = {name: "Your Closet", interests: "Fashion", skills: ["Machine Learning", "Figma"], logo: "closetLogo.jpg", description: "AI-ing your closet for the finest fits."};
     const userData4 = {name: "Prime", interests: "Productivity", skills: ["Java", "Node JS"], logo: "connectedconvo.jpg", description: "Connecting people through conversations."};
-    const userData2 = {name: "Foodies", interests: "Social", skills: ["App Development"], logo: "krispy.jpg", description: "Finding your friends through food"};
-    const userData6 = {name: "Data Crazy", interests: "Data Science", skills: ["Machine Learning", "Figma"], logo: "data.jpg", description: "Merging data and analyzing it for retail"};
+    const userData2 = {name: "Foodies", interests: "Social", skills: ["App Development"], logo: "krispy.jpg", description: "Finding your friends through your love for food."};
+    const userData6 = {name: "Data Crazy", interests: "Data Science", skills: ["Machine Learning", "Figma"], logo: "data.jpg", description: "Merging data and analyzing it for retail."};
 
 
 
