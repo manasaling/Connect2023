@@ -97,12 +97,11 @@ export default function ProfileCard(props) {
                     <div class="card-body">
                       <p class="name">{myObject.name}</p>
                         <div class = "profile-credentials">
-                          <p class="job"><i className="fa fa-briefcase fa-fw w3-margin-right icon-blue"></i>{myObject.university}</p>
-                          <p class="job"><i className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></i>Skills: {(myObject.skills).join(', ')}</p>
-                          <p class="job"><i className="fa fa-globe fa-fw w3-margin-right icon-blue"></i>Interests: {(myObject.interests).join(', ')}</p>
+                          <p class="college"><p className="fa fa-briefcase fa-fw w3-margin-right icon-blue"></p><b>{myObject.university}</b></p>
+                          <label><p class="job"><p className="fa fa-asterisk fa-fw w3-margin-right icon-blue"></p><b>Skills:</b> {(myObject.skills).join(', ')}</p></label>
+                          <p class="job"><p className="fa fa-globe fa-fw w3-margin-right icon-blue"></p><b>Interests:</b> {(myObject.interests).join(', ')}</p>
                         </div>
                       {/* <a href="#" class="mail">{myObject.university}</a> */}
-                       
                     </div>
 
                     {/* <div class="social-links">
